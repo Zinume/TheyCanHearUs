@@ -1,0 +1,212 @@
+[gd_scene load_steps=12 format=3 uid="uid://dfnthevw6vdxq"]
+
+[ext_resource type="Script" path="res://lvls/main_menu.gd" id="1_gyidh"]
+[ext_resource type="Shader" path="res://shader/Ps1.gdshader" id="1_pvrrs"]
+[ext_resource type="Texture2D" uid="uid://csv380lstrf0y" path="res://assets/Shader_assets/bayer2tile16.png" id="2_eqkb8"]
+[ext_resource type="FontFile" uid="uid://c1mtdl75tm6yo" path="res://Fuente/BestTen-DOT.otf" id="3_revpb"]
+[ext_resource type="PackedScene" uid="uid://mwx7pjrq25um" path="res://UI/UI_Opciones.tscn" id="5_i21vv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lb4rf"]
+shader = ExtResource("1_pvrrs")
+shader_parameter/levels = 16
+shader_parameter/threshold = 1.0
+shader_parameter/colors = 15
+shader_parameter/pixelate = 5.445
+shader_parameter/dither_texture = ExtResource("2_eqkb8")
+
+[sub_resource type="Gradient" id="Gradient_jebea"]
+colors = PackedColorArray(0.0520006, 0.0215055, 0.0215064, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_igwbp"]
+gradient = SubResource("Gradient_jebea")
+fill_from = Vector2(0, 0.0042735)
+
+[sub_resource type="Environment" id="Environment_53f22"]
+resource_local_to_scene = true
+background_mode = 1
+background_color = Color(0.207843, 0.27451, 0.427451, 1)
+background_energy_multiplier = 0.3
+ambient_light_source = 2
+ambient_light_color = Color(0.0431373, 0.0666667, 0.180392, 1)
+ambient_light_energy = 8.0
+ssao_enabled = true
+ssao_radius = 3.0
+ssao_intensity = 1.55
+ssao_power = 7.64736
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.364706, 0.396078, 0.443137, 1)
+fog_density = 0.0747
+volumetric_fog_enabled = true
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture2D_igwbp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ow3do"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_hlt58"]
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_gyidh")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_lb4rf")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer"]
+environment = SubResource("Environment_53f22")
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_3d = true
+physics_object_picking = true
+physics_object_picking_sort = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0906, 3.62767)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10.1291, 0, 0, 0, 1, 0, 0, 0, 3.78064, 0, 0, 0)
+mesh = SubResource("BoxMesh_ow3do")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.184221, 0, 0.0917809, 0, 1, 0, -0.0465023, 0, 0.363595, 0, 1.20628, 0)
+mesh = SubResource("PrismMesh_hlt58")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.847456, -0.144527, -0.510814, 0.514575, 0.460183, 0.723494, 0.130504, -0.875982, 0.464355, -2.404, 2.78516, 1.29657)
+light_color = Color(0.811765, 0.541176, 0, 1)
+light_energy = 8.869
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -200.0
+offset_right = 735.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_revpb")
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_revpb")
+theme_override_font_sizes/font_size = 30
+text = "Load"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_revpb")
+theme_override_font_sizes/font_size = 30
+text = "Option"
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_revpb")
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[node name="BorrarPartida" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="BorrarPartida"]
+modulate = Color(1, 1, 1, 0.458824)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BorrarPartida"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 730.0
+offset_top = 500.5
+offset_right = 1130.0
+offset_bottom = 560.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Si" type="Button" parent="BorrarPartida/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_revpb")
+theme_override_font_sizes/font_size = 30
+text = "Yes"
+
+[node name="No" type="Button" parent="BorrarPartida/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_revpb")
+theme_override_font_sizes/font_size = 30
+text = "No"
+
+[node name="ColorRect2" type="ColorRect" parent="BorrarPartida"]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 358.0
+offset_right = 1328.0
+offset_bottom = 496.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="BorrarPartida/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.0
+offset_top = -34.0
+offset_right = 327.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_revpb")
+theme_override_font_sizes/font_size = 30
+text = "ERASE"
+
+[node name="UI_Opciones" parent="." node_paths=PackedStringArray("World") instance=ExtResource("5_i21vv")]
+visible = false
+World = NodePath("../SubViewportContainer/WorldEnvironment")
+
+[node name="Save" parent="UI_Opciones/VBoxContainer" index="2"]
+visible = false
+
+[node name="Exit" parent="UI_Opciones/VBoxContainer" index="4"]
+visible = false
+
+[node name="MouseSensitivity" parent="UI_Opciones/VBoxContainer2" index="1"]
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="BorrarPartida/HBoxContainer/Si" to="." method="_on_si_pressed"]
+[connection signal="pressed" from="BorrarPartida/HBoxContainer/No" to="." method="_on_no_pressed"]
+
+[editable path="UI_Opciones"]

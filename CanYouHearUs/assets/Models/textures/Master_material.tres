@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://rwde5yhqc2ws"]
+
+[ext_resource type="Texture2D" uid="uid://dd3rebokyflgc" path="res://assets/Models/textures/dungeon_texture.png" id="1_xbns2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1b8mk"]
+resource_local_to_scene = true
+
+[resource]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_1b8mk")
+albedo_texture = ExtResource("1_xbns2")

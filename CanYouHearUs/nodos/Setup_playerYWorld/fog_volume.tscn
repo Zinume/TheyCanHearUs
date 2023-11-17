@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://6kj0xo85fdgf"]
+
+[ext_resource type="Shader" path="res://shader/fog.gdshader" id="1_klebs"]
+
+[sub_resource type="Gradient" id="Gradient_7cjvs"]
+colors = PackedColorArray(0.2065, 0.275858, 0.35, 1, 0.337449, 0.44976, 0.478703, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_106hh"]
+gradient = SubResource("Gradient_7cjvs")
+fill_from = Vector2(0.346154, 0)
+fill_to = Vector2(0.863248, 0.00854701)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cry13"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7tjy2"]
+noise = SubResource("FastNoiseLite_cry13")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4dvdi"]
+shader = ExtResource("1_klebs")
+shader_parameter/noise_scale = 0.257
+shader_parameter/flatness = 7.165
+shader_parameter/density = 0.555
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_7tjy2")
+shader_parameter/grad_tex = SubResource("GradientTexture2D_106hh")
+
+[node name="FogVolume" type="FogVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.539315, 0.153843, -1.55227)
+size = Vector3(20.9523, 0.965137, 25.7304)
+material = SubResource("ShaderMaterial_4dvdi")

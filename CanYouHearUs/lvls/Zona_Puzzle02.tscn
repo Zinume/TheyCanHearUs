@@ -1,0 +1,108 @@
+[gd_scene load_steps=14 format=3 uid="uid://i4l0tr2sn0lv"]
+
+[ext_resource type="Material" uid="uid://2ciy11rdndma" path="res://addons/character-controller/example/main/materials/grass.tres" id="1_cocvu"]
+[ext_resource type="PhysicsMaterial" path="res://addons/character-controller/example/main/physics/grass.tres" id="2_eqvnw"]
+[ext_resource type="PackedScene" uid="uid://cm32b1o1ir24r" path="res://nodos/Setup_playerYWorld/sub_viewport_container.tscn" id="3_d3v84"]
+[ext_resource type="PackedScene" uid="uid://dhd8nlk0nhx3p" path="res://nodos/Puzzle02/base_puzzle_02.tscn" id="6_dn8cf"]
+[ext_resource type="PackedScene" uid="uid://mwx7pjrq25um" path="res://UI/UI_Opciones.tscn" id="6_qhi0p"]
+[ext_resource type="PackedScene" uid="uid://dgv637ce1g4b7" path="res://nodos/Puzzle02/pieza_puzzle_02.tscn" id="7_4ublj"]
+[ext_resource type="PackedScene" uid="uid://k0vwusitrb60" path="res://nodos/fade_in.tscn" id="7_5vyhd"]
+[ext_resource type="PackedScene" uid="uid://cio5lqg6aoijh" path="res://nodos/salir_puzzle.tscn" id="8_rgr7x"]
+
+[sub_resource type="Gradient" id="Gradient_jebea"]
+colors = PackedColorArray(0.0520006, 0.0215055, 0.0215064, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aiher"]
+gradient = SubResource("Gradient_jebea")
+fill_from = Vector2(0, 0.0042735)
+
+[sub_resource type="Environment" id="Environment_mrow3"]
+resource_local_to_scene = true
+background_mode = 1
+background_color = Color(0.207843, 0.27451, 0.427451, 1)
+background_energy_multiplier = 0.3
+ambient_light_source = 2
+ambient_light_color = Color(0.0431373, 0.0666667, 0.180392, 1)
+ambient_light_energy = 8.0
+ssao_enabled = true
+ssao_radius = 3.0
+ssao_intensity = 1.55
+ssao_power = 7.64736
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.364706, 0.396078, 0.443137, 1)
+fog_density = 0.0747
+volumetric_fog_enabled = true
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture2D_aiher")
+
+[sub_resource type="BoxMesh" id="BoxMesh_g2t8j"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bw4qw"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Zona_Puzzle02" type="Node3D"]
+
+[node name="SubViewportContainer" parent="." instance=ExtResource("3_d3v84")]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="WorldEnvironment" parent="SubViewportContainer" index="0"]
+environment = SubResource("Environment_mrow3")
+
+[node name="Player" parent="SubViewportContainer/SubViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.916404, 1.5994)
+LuzLinterna = 1.5
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(58.1349, 0, 0, 0, 0.148952, 0, 0, 0, 52.3946, 0, -0.819498, -1.33001)
+material_override = ExtResource("1_cocvu")
+mesh = SubResource("BoxMesh_g2t8j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
+physics_material_override = ExtResource("2_eqvnw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_bw4qw")
+
+[node name="BasePuzzle02_01" parent="." node_paths=PackedStringArray("boton3") instance=ExtResource("6_dn8cf")]
+combinacion_secreta = {
+"boton1": true,
+"boton2": false,
+"boton3": true,
+"boton4": false,
+"boton5": false,
+"boton6": false,
+"boton7": false,
+"boton8": false
+}
+CantidadBotonesCombinacionSecreta = 3
+boton3 = NodePath("PiezaPuzzle02_03")
+
+[node name="PiezaPuzzle02_01" parent="BasePuzzle02_01" index="1" node_paths=PackedStringArray("Jugador")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03812, 0.580733, 0.414091)
+collision_layer = 2
+collision_mask = 2
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="PiezaPuzzle02_02" parent="BasePuzzle02_01" index="2" node_paths=PackedStringArray("Jugador")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0394474, 0.583651, 0.479465)
+collision_layer = 2
+collision_mask = 2
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="PiezaPuzzle02_03" parent="BasePuzzle02_01" node_paths=PackedStringArray("MiPapa", "Jugador") instance=ExtResource("7_4ublj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21371, 0.625572, 0.432107)
+MiPapa = NodePath("..")
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+MiNombreSera_boton3 = true
+
+[node name="UI_Opciones" parent="." instance=ExtResource("6_qhi0p")]
+
+[node name="FadeIn" parent="." instance=ExtResource("7_5vyhd")]
+
+[node name="Salir_puzzle" parent="." instance=ExtResource("8_rgr7x")]
+
+[editable path="SubViewportContainer"]
+[editable path="BasePuzzle02_01"]

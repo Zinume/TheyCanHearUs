@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhd8nlk0nhx3p"]
+
+[ext_resource type="Script" path="res://nodos/Puzzle02/base_puzzle_02.gd" id="1_inc07"]
+[ext_resource type="PackedScene" uid="uid://dgv637ce1g4b7" path="res://nodos/Puzzle02/pieza_puzzle_02.tscn" id="2_eon22"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qqb0p"]
+
+[node name="BasePuzzle02_01" type="Node3D" node_paths=PackedStringArray("boton1", "boton2")]
+script = ExtResource("1_inc07")
+combinacion_secreta = {
+"boton1": false,
+"boton2": true,
+"boton3": false,
+"boton4": false,
+"boton5": false,
+"boton6": false,
+"boton7": false,
+"boton8": false
+}
+boton1 = NodePath("PiezaPuzzle02_01")
+boton2 = NodePath("PiezaPuzzle02_02")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.59829, 0, 0, 0, 1, 0, 0, 0, 3.3778, 0, 0, 0)
+mesh = SubResource("BoxMesh_qqb0p")
+
+[node name="PiezaPuzzle02_01" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("2_eon22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85684, 0.580733, 0)
+MiPapa = NodePath("..")
+MiNombreSera_boton1 = true
+
+[node name="PiezaPuzzle02_02" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("2_eon22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.779276, 0.583651, 0)
+MiPapa = NodePath("..")
+MiNombreSera_boton2 = true

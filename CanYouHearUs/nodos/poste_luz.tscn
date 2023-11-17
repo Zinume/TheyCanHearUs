@@ -1,0 +1,162 @@
+[gd_scene load_steps=17 format=3 uid="uid://21pgid00isj4"]
+
+[ext_resource type="ArrayMesh" uid="uid://ooa2n0leuy68" path="res://assets/Models/Object/post.tres" id="1_ve6jt"]
+[ext_resource type="ArrayMesh" uid="uid://dx8ju3mta7noh" path="res://assets/Models/Object/lantern_hanging.tres" id="2_thpyb"]
+
+[sub_resource type="Gradient" id="Gradient_7gpn8"]
+offsets = PackedFloat32Array(0, 0.311828, 0.53405, 0.810036)
+colors = PackedColorArray(0.552941, 0, 0.0117647, 0, 0.732466, 0.226447, 0.0625188, 1, 0.909134, 0.651768, 0.00164607, 1, 0.980392, 0.960784, 0.972549, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iyo4e"]
+gradient = SubResource("Gradient_7gpn8")
+
+[sub_resource type="Curve" id="Curve_odhmn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.416129, 0.736842), 0.0, 0.0, 0, 0, Vector2(0.577419, 0.915789), -0.494418, -0.494418, 0, 0, Vector2(0.683871, 0.831579), 0.0, 0.0, 0, 0, Vector2(0.806452, 0), -4.35088, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_3hckr"]
+curve = SubResource("Curve_odhmn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_icfts"]
+gravity = Vector3(0, 1, 0)
+scale_min = 0.05
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_3hckr")
+color_ramp = SubResource("GradientTexture1D_iyo4e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvr5s"]
+transparency = 1
+specular_mode = 2
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(1, 0.67451, 0.0862745, 1)
+emission_energy_multiplier = 3.0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_lpchg"]
+material = SubResource("StandardMaterial3D_rvr5s")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jl6sa"]
+gradient = SubResource("Gradient_7gpn8")
+
+[sub_resource type="Curve" id="Curve_h2qxf"]
+_data = [Vector2(0.26129, 0), 0.0, 0.0, 0, 0, Vector2(0.587097, 0.757895), 0.0, 0.0, 0, 0, Vector2(0.825806, 0.736842), 0.0, 0.0, 0, 0, Vector2(0.954839, 0.978947), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_qrhge"]
+curve = SubResource("Curve_h2qxf")
+
+[sub_resource type="CurveTexture" id="CurveTexture_8glti"]
+curve = SubResource("Curve_odhmn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_02slt"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+gravity = Vector3(0, 0.01, 0)
+linear_accel_max = 0.9
+linear_accel_curve = SubResource("CurveTexture_qrhge")
+scale_min = 0.05
+scale_max = 0.06
+scale_curve = SubResource("CurveTexture_8glti")
+color_ramp = SubResource("GradientTexture1D_jl6sa")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ei1tw"]
+transparency = 1
+specular_mode = 2
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(1, 0.67451, 0.0862745, 1)
+emission_energy_multiplier = 3.0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_ne8v4"]
+material = SubResource("StandardMaterial3D_ei1tw")
+
+[node name="Poste_luz" type="Node3D"]
+
+[node name="Post" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_ve6jt")
+
+[node name="LanternHanging" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.04064, 1.15343)
+mesh = ExtResource("2_thpyb")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175187, 1.94128, 1.1899)
+visibility_range_end = 20.0
+amount = 20
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_icfts")
+draw_pass_1 = SubResource("SphereMesh_lpchg")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.124519, -0.992217, 0, 0.992217, 0.124519, 0, 0, 0, 1, 0.175187, 2.01763, 1.1899)
+visibility_range_end = 20.0
+amount = 20
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_02slt")
+draw_pass_1 = SubResource("SphereMesh_ne8v4")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.168974, 1.94128, 1.1899)
+visibility_range_end = 20.0
+amount = 20
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_icfts")
+draw_pass_1 = SubResource("SphereMesh_lpchg")
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.124519, -0.992217, 0, 0.992217, 0.124519, 0, 0, 0, 1, -0.168974, 2.01763, 1.1899)
+visibility_range_end = 20.0
+amount = 20
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_02slt")
+draw_pass_1 = SubResource("SphereMesh_ne8v4")
+
+[node name="GPUParticles3D5" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00748418, 1.94128, 1.29675)
+visibility_range_end = 20.0
+amount = 20
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_icfts")
+draw_pass_1 = SubResource("SphereMesh_lpchg")
+
+[node name="GPUParticles3D6" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.124519, -0.992217, 0, 0.992217, 0.124519, 0, 0, 0, 1, -0.00748418, 2.01763, 1.29675)
+visibility_range_end = 20.0
+amount = 20
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_02slt")
+draw_pass_1 = SubResource("SphereMesh_ne8v4")
+
+[node name="GPUParticles3D7" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00748418, 1.94128, 1.01498)
+visibility_range_end = 20.0
+amount = 20
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_icfts")
+draw_pass_1 = SubResource("SphereMesh_lpchg")
+
+[node name="GPUParticles3D8" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.124519, -0.992217, 0, 0.992217, 0.124519, 0, 0, 0, 1, -0.00748418, 2.01763, 1.01498)
+visibility_range_end = 20.0
+amount = 20
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_02slt")
+draw_pass_1 = SubResource("SphereMesh_ne8v4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110815, 1.68872, 1.1899)
+light_color = Color(1, 0.454902, 0, 1)
+light_energy = 2.0
+distance_fade_enabled = true
+distance_fade_begin = 20.0
+omni_range = 6.568

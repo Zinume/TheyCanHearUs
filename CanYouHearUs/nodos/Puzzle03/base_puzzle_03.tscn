@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch5rcxkj60u8h"]
+
+[ext_resource type="Script" path="res://nodos/Puzzle03/base_puzzle_03.gd" id="1_12dg4"]
+[ext_resource type="PackedScene" uid="uid://b7xfahegmsl8k" path="res://nodos/Puzzle03/area_puzzle_03.tscn" id="1_3354o"]
+[ext_resource type="PackedScene" uid="uid://bot1jf4o5s4ie" path="res://nodos/Puzzle03/pieza_puzzle_03.tscn" id="3_2w1x2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ypet7"]
+
+[node name="base_puzzle_03_01" type="Node3D" node_paths=PackedStringArray("NumeroLugar01", "NumeroLugar02", "NumeroLugar03", "NumeroLugar04")]
+script = ExtResource("1_12dg4")
+NumeroLugar01 = NodePath("AreaPuzzle_03_01")
+NumeroLugar02 = NodePath("AreaPuzzle_03_02")
+NumeroLugar03 = NodePath("AreaPuzzle_03_03")
+NumeroLugar04 = NodePath("AreaPuzzle_03_04")
+combinacion_secreta = {
+"lugar1": "pieza1",
+"lugar2": "null",
+"lugar3": "null",
+"lugar4": "pieza2",
+"lugar5": "null",
+"lugar6": "null",
+"lugar7": "pieza7",
+"lugar8": "null"
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.76836, 0, 0, 0, 0.631855, 0, 0, 0, 2.25769, 0, 0, 0)
+mesh = SubResource("BoxMesh_ypet7")
+
+[node name="PiezaPuzzle_03_01" parent="." instance=ExtResource("3_2w1x2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.739595, 0.610124, 0.325711)
+
+[node name="PiezaPuzzle_03_02" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("3_2w1x2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.818376, 0.639615, 0.684723)
+NumeroPieza = "pieza2"
+MiPapa = NodePath("..")
+
+[node name="AreaPuzzle_03_01" parent="." instance=ExtResource("1_3354o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.606463, 0)
+
+[node name="AreaPuzzle_03_02" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("1_3354o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66675, 0.590757, 0)
+Lugar = "lugar2"
+MiPapa = NodePath("..")
+
+[node name="AreaPuzzle_03_03" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("1_3354o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.629344, 0.738042)
+Lugar = "lugar3"
+MiPapa = NodePath("..")
+
+[node name="AreaPuzzle_03_04" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("1_3354o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.677781, 0.598692, 0.693453)
+Lugar = "lugar4"
+MiPapa = NodePath("..")

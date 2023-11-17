@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=3 uid="uid://cs44p0hhcg7y2"]
+
+[ext_resource type="Script" path="res://nodos/observation_item.gd" id="1_eeww7"]
+[ext_resource type="Texture2D" uid="uid://baet0kg8vig26" path="res://assets/Icon/puzzle_icon.png" id="2_e4v14"]
+[ext_resource type="AudioStream" uid="uid://ba5iu4e6mi86u" path="res://audio/Click40.ogg" id="3_gqn3e"]
+[ext_resource type="AudioStream" uid="uid://dq330iefc6nx1" path="res://audio/Click1.ogg" id="4_mexeo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jy1h"]
+resource_local_to_scene = true
+size = Vector3(0.422552, 0.670127, 0.506949)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2w51o"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jx17x"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_2w51o")
+
+[sub_resource type="PrismMesh" id="PrismMesh_y3odp"]
+resource_local_to_scene = true
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_afm63"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fb74k"]
+resource_name = "interactuar"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.5, 1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a6a4d"]
+_data = {
+"RESET": SubResource("Animation_afm63"),
+"interactuar": SubResource("Animation_fb74k")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pcuek"]
+size = Vector3(6.85314, 1, 6.12002)
+
+[node name="observationItem" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_eeww7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2jy1h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_jx17x")
+mesh = SubResource("PrismMesh_y3odp")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.400123, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
+visible = false
+billboard = 1
+fixed_size = true
+texture = ExtResource("2_e4v14")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a6a4d")
+}
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_pcuek")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gqn3e")
+bus = &"FX"
+
+[node name="Sound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mexeo")
+bus = &"FX"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

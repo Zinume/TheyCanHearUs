@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://jg5eairm3pga"]
+
+[ext_resource type="Script" path="res://UI/UI_aviso_tome_item.gd" id="1_4cgbg"]
+[ext_resource type="FontFile" uid="uid://c1mtdl75tm6yo" path="res://Fuente/BestTen-DOT.otf" id="1_5h5u7"]
+
+[sub_resource type="Animation" id="Animation_20vr2"]
+resource_name = "desaparecer"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.3, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dcael"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lc2y1"]
+_data = {
+"RESET": SubResource("Animation_dcael"),
+"desaparecer": SubResource("Animation_20vr2")
+}
+
+[node name="AvisoTomeItem" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -216.5
+offset_top = -380.0
+offset_right = 216.5
+offset_bottom = -340.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_4cgbg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.596078)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.5
+offset_top = -38.5
+offset_right = 426.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0352941, 0.0352941, 0.0352941, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -15.5
+offset_right = 20.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_5h5u7")
+theme_override_font_sizes/font_size = 30
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lc2y1")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

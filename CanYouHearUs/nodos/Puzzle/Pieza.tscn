@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfgqbxljflbre"]
+
+[ext_resource type="Script" path="res://nodos/Puzzle/pieza_puzzle.gd" id="1_t5wjy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7a8nv"]
+resource_local_to_scene = true
+size = Vector3(0.19713, 0.461399, 0.218217)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bkuqj"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ims2"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_bkuqj")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8n6ur"]
+radius = 0.25
+height = 1.0
+
+[node name="Pieza" type="StaticBody3D"]
+collision_layer = 2
+script = ExtResource("1_t5wjy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7a8nv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.00683329, 0)
+material_override = SubResource("StandardMaterial3D_0ims2")
+mesh = SubResource("CapsuleMesh_8n6ur")

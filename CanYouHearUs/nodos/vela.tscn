@@ -1,0 +1,113 @@
+[gd_scene load_steps=16 format=3 uid="uid://dse20mlldjpqq"]
+
+[ext_resource type="ArrayMesh" uid="uid://b14qc2xgyi35i" path="res://assets/Models/Object/candle_thin.tres" id="1_6obj6"]
+
+[sub_resource type="Gradient" id="Gradient_kv5eh"]
+offsets = PackedFloat32Array(0, 0.311828, 0.53405, 0.810036)
+colors = PackedColorArray(0.552941, 0, 0.0117647, 0, 0.732466, 0.226447, 0.0625188, 1, 0.909134, 0.651768, 0.00164607, 1, 0.980392, 0.960784, 0.972549, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_18244"]
+gradient = SubResource("Gradient_kv5eh")
+
+[sub_resource type="Curve" id="Curve_se6qg"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.416129, 0.736842), 0.0, 0.0, 0, 0, Vector2(0.577419, 0.915789), -0.494418, -0.494418, 0, 0, Vector2(0.683871, 0.831579), 0.0, 0.0, 0, 0, Vector2(0.806452, 0), -4.35088, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_5odqq"]
+curve = SubResource("Curve_se6qg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wf8ln"]
+gravity = Vector3(0, 1, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_5odqq")
+color_ramp = SubResource("GradientTexture1D_18244")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgmt2"]
+transparency = 1
+specular_mode = 2
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(1, 0.67451, 0.0862745, 1)
+emission_energy_multiplier = 3.0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_wrqed"]
+material = SubResource("StandardMaterial3D_pgmt2")
+radius = 0.2
+height = 0.4
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ynvss"]
+gradient = SubResource("Gradient_kv5eh")
+
+[sub_resource type="Curve" id="Curve_8c6of"]
+_data = [Vector2(0.26129, 0), 0.0, 0.0, 0, 0, Vector2(0.587097, 0.757895), 0.0, 0.0, 0, 0, Vector2(0.825806, 0.736842), 0.0, 0.0, 0, 0, Vector2(0.954839, 0.978947), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_we5h2"]
+curve = SubResource("Curve_8c6of")
+
+[sub_resource type="CurveTexture" id="CurveTexture_4u35j"]
+curve = SubResource("Curve_se6qg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w6o0s"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+gravity = Vector3(0, 0.01, 0)
+linear_accel_max = 0.9
+linear_accel_curve = SubResource("CurveTexture_we5h2")
+scale_min = 0.05
+scale_max = 0.06
+scale_curve = SubResource("CurveTexture_4u35j")
+color_ramp = SubResource("GradientTexture1D_ynvss")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twmwj"]
+transparency = 1
+specular_mode = 2
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(1, 0.67451, 0.0862745, 1)
+emission_energy_multiplier = 3.0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_6t6xm"]
+material = SubResource("StandardMaterial3D_twmwj")
+radius = 0.2
+height = 0.4
+
+[node name="Vela" type="Node3D"]
+
+[node name="CandleThin" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+visibility_range_end = 20.0
+mesh = ExtResource("1_6obj6")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249406, 0)
+visibility_range_end = 20.0
+amount = 20
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_wf8ln")
+draw_pass_1 = SubResource("SphereMesh_wrqed")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.124519, -0.992217, 0, 0.992217, 0.124519, 0, 0, 0, 1, 0, 0.346374, 0)
+visibility_range_end = 20.0
+amount = 20
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_w6o0s")
+draw_pass_1 = SubResource("SphereMesh_6t6xm")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2394, 0)
+light_color = Color(1, 0.454902, 0, 1)
+distance_fade_enabled = true
+distance_fade_begin = 20.0

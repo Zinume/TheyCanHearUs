@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://ctw16ov6acioh"]
+
+[ext_resource type="PackedScene" uid="uid://cm32b1o1ir24r" path="res://nodos/Setup_playerYWorld/sub_viewport_container.tscn" id="1_o2eh1"]
+[ext_resource type="Material" uid="uid://2ciy11rdndma" path="res://addons/character-controller/example/main/materials/grass.tres" id="2_qsr4n"]
+[ext_resource type="PhysicsMaterial" path="res://addons/character-controller/example/main/physics/grass.tres" id="3_cobvq"]
+[ext_resource type="PackedScene" uid="uid://nlyq0blla1cs" path="res://nodos/Puzzle04/base_puzzle_04.tscn" id="4_pywk3"]
+[ext_resource type="PackedScene" uid="uid://mwx7pjrq25um" path="res://UI/UI_Opciones.tscn" id="5_yv4du"]
+[ext_resource type="PackedScene" uid="uid://cio5lqg6aoijh" path="res://nodos/salir_puzzle.tscn" id="6_6a408"]
+
+[sub_resource type="Gradient" id="Gradient_jebea"]
+colors = PackedColorArray(0.0520006, 0.0215055, 0.0215064, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aiher"]
+gradient = SubResource("Gradient_jebea")
+fill_from = Vector2(0, 0.0042735)
+
+[sub_resource type="Environment" id="Environment_fps2a"]
+resource_local_to_scene = true
+background_mode = 1
+background_color = Color(0.207843, 0.27451, 0.427451, 1)
+background_energy_multiplier = 0.3
+ambient_light_source = 2
+ambient_light_color = Color(0.0431373, 0.0666667, 0.180392, 1)
+ambient_light_energy = 8.0
+ssao_enabled = true
+ssao_radius = 3.0
+ssao_intensity = 1.55
+ssao_power = 7.64736
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.364706, 0.396078, 0.443137, 1)
+fog_density = 0.0747
+volumetric_fog_enabled = true
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture2D_aiher")
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ijvd"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h5muj"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="zona_puzzle_04" type="Node3D"]
+
+[node name="SubViewportContainer" parent="." instance=ExtResource("1_o2eh1")]
+
+[node name="WorldEnvironment" parent="SubViewportContainer" index="0"]
+environment = SubResource("Environment_fps2a")
+
+[node name="Player" parent="SubViewportContainer/SubViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.783246, 0.600742)
+LuzLinterna = 1.5
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(58.1349, 0, 0, 0, 0.148952, 0, 0, 0, 52.3946, 0, -1.83879, -1.33001)
+material_override = ExtResource("2_qsr4n")
+mesh = SubResource("BoxMesh_8ijvd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
+physics_material_override = ExtResource("3_cobvq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_h5muj")
+
+[node name="BasePuzzle_04_01" parent="." instance=ExtResource("4_pywk3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53417, -0.281136)
+combinacion_secreta = {
+"pieza1": 2,
+"pieza2": 3,
+"pieza3": 4,
+"pieza4": 1,
+"pieza5": 1,
+"pieza6": 1,
+"pieza7": 1,
+"pieza8": 1
+}
+CantidadBotonesCombinacionSecreta = 3
+
+[node name="AreaPuzzle04_01" parent="BasePuzzle_04_01" index="1" node_paths=PackedStringArray("Jugador")]
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="AreaPuzzle04_02" parent="BasePuzzle_04_01" index="2" node_paths=PackedStringArray("Jugador")]
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="AreaPuzzle04_03" parent="BasePuzzle_04_01" index="3" node_paths=PackedStringArray("Jugador")]
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="UI_Opciones" parent="." instance=ExtResource("5_yv4du")]
+visible = false
+
+[node name="Salir_puzzle" parent="." instance=ExtResource("6_6a408")]
+
+[editable path="SubViewportContainer"]
+[editable path="BasePuzzle_04_01"]

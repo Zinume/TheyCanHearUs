@@ -1,0 +1,188 @@
+[gd_scene load_steps=25 format=3 uid="uid://kjs5jch70wlk"]
+
+[ext_resource type="Material" uid="uid://2ciy11rdndma" path="res://addons/character-controller/example/main/materials/grass.tres" id="1_0531h"]
+[ext_resource type="PhysicsMaterial" path="res://addons/character-controller/example/main/physics/grass.tres" id="2_436il"]
+[ext_resource type="PackedScene" uid="uid://cm32b1o1ir24r" path="res://nodos/Setup_playerYWorld/sub_viewport_container.tscn" id="3_uif54"]
+[ext_resource type="PackedScene" uid="uid://dgua0n0rleyrm" path="res://nodos/Puzzle/AreaPuzzle.tscn" id="6_mhorq"]
+[ext_resource type="PackedScene" uid="uid://bfgqbxljflbre" path="res://nodos/Puzzle/Pieza.tscn" id="7_jpyt0"]
+[ext_resource type="PackedScene" uid="uid://k0vwusitrb60" path="res://nodos/fade_in.tscn" id="8_mby5o"]
+[ext_resource type="PackedScene" uid="uid://mwx7pjrq25um" path="res://UI/UI_Opciones.tscn" id="8_p526u"]
+[ext_resource type="PackedScene" uid="uid://bjrj8j2yww0am" path="res://nodos/Puzzle/area_piezza.tscn" id="8_wue3e"]
+[ext_resource type="PackedScene" uid="uid://cio5lqg6aoijh" path="res://nodos/salir_puzzle.tscn" id="9_f0s6u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_greu3"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0ry44"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="Gradient" id="Gradient_jebea"]
+colors = PackedColorArray(0.0520006, 0.0215055, 0.0215064, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aiher"]
+gradient = SubResource("Gradient_jebea")
+fill_from = Vector2(0, 0.0042735)
+
+[sub_resource type="Environment" id="Environment_ko4mg"]
+resource_local_to_scene = true
+background_mode = 1
+background_color = Color(0.207843, 0.27451, 0.427451, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.0431373, 0.0666667, 0.180392, 1)
+ambient_light_energy = 10.0
+ssao_enabled = true
+ssao_radius = 3.0
+ssao_intensity = 1.55
+ssao_power = 7.64736
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.364706, 0.396078, 0.443137, 1)
+fog_density = 0.0747
+volumetric_fog_enabled = true
+adjustment_color_correction = SubResource("GradientTexture2D_aiher")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fjmvy"]
+resource_local_to_scene = true
+size = Vector3(0.387946, 0.00819706, 0.343746)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_16tex"]
+resource_local_to_scene = true
+size = Vector3(0.485362, 0.0374083, 0.477921)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ldv5s"]
+resource_local_to_scene = true
+size = Vector3(0.19713, 0.461399, 0.218217)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41qo7"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp027"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_41qo7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0g4w"]
+resource_local_to_scene = true
+size = Vector3(0.494351, 0.124461, 0.555634)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uomts"]
+resource_local_to_scene = true
+size = Vector3(0.19713, 0.461399, 0.218217)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uhagy"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqsgc"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_uhagy")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0su21"]
+resource_local_to_scene = true
+size = Vector3(0.694902, 0.220957, 0.657325)
+
+[node name="Zona_Puzzle01" type="Node3D"]
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(58.1349, 0, 0, 0, 0.148952, 0, 0, 0, 52.3946, 0, -0.819498, -1.33001)
+material_override = ExtResource("1_0531h")
+mesh = SubResource("BoxMesh_greu3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
+physics_material_override = ExtResource("2_436il")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_0ry44")
+
+[node name="SubViewportContainer" parent="." instance=ExtResource("3_uif54")]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="WorldEnvironment" parent="SubViewportContainer" index="0"]
+environment = SubResource("Environment_ko4mg")
+
+[node name="Player" parent="SubViewportContainer/SubViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.967542, 0.252711, 0, -0.252711, 0.967542, 0, 0.727947, -0.0969439)
+LuzLinterna = 1.5
+
+[node name="Puzzle_zone" parent="." node_paths=PackedStringArray("NumeroLugar04") instance=ExtResource("6_mhorq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146876, -0.22212, -1.35222)
+victoria = "01020304"
+NumeroLugar04 = NodePath("area_piezza4")
+
+[node name="Pieza" parent="Puzzle_zone" index="0" node_paths=PackedStringArray("Jugador")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.880326, 0.793359, 0.298572)
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="area_piezza" parent="Puzzle_zone" index="1" node_paths=PackedStringArray("Jugador")]
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="CollisionShape3D" parent="Puzzle_zone/area_piezza" index="0"]
+shape = SubResource("BoxShape3D_fjmvy")
+
+[node name="area_piezza2" parent="Puzzle_zone" index="3" node_paths=PackedStringArray("Jugador")]
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="CollisionShape3D" parent="Puzzle_zone/area_piezza2" index="0"]
+shape = SubResource("BoxShape3D_16tex")
+
+[node name="Pieza2" parent="Puzzle_zone" index="4" node_paths=PackedStringArray("MiPapa", "Jugador")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23109, 0.788352, 0.333291)
+NumeroObjeto = "02"
+MiPapa = NodePath("..")
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="CollisionShape3D" parent="Puzzle_zone/Pieza2" index="0"]
+shape = SubResource("BoxShape3D_ldv5s")
+
+[node name="MeshInstance3D" parent="Puzzle_zone/Pieza2/CollisionShape3D" index="0"]
+material_override = SubResource("StandardMaterial3D_bp027")
+
+[node name="area_piezza3" parent="Puzzle_zone" index="5" node_paths=PackedStringArray("Jugador")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.774202, 0.72604, 0.753153)
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="CollisionShape3D" parent="Puzzle_zone/area_piezza3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0935614, 0, 0.0303341)
+shape = SubResource("BoxShape3D_a0g4w")
+
+[node name="Pieza3" parent="Puzzle_zone" node_paths=PackedStringArray("MiPapa", "Jugador") instance=ExtResource("7_jpyt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15069, 0.772, 0.837691)
+NumeroObjeto = "03"
+MiPapa = NodePath("..")
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="CollisionShape3D" parent="Puzzle_zone/Pieza3" index="0"]
+shape = SubResource("BoxShape3D_uomts")
+
+[node name="MeshInstance3D" parent="Puzzle_zone/Pieza3/CollisionShape3D" index="0"]
+material_override = SubResource("StandardMaterial3D_xqsgc")
+
+[node name="area_piezza4" parent="Puzzle_zone" node_paths=PackedStringArray("MiPapa", "Jugador") instance=ExtResource("8_wue3e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0475094, 0.72276, 0.543857)
+Lugar = "04"
+MiPapa = NodePath("..")
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="CollisionShape3D" parent="Puzzle_zone/area_piezza4" index="0"]
+shape = SubResource("BoxShape3D_0su21")
+
+[node name="Pieza4" parent="Puzzle_zone" node_paths=PackedStringArray("MiPapa", "Jugador") instance=ExtResource("7_jpyt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.763293, 0.776223, 0.759364)
+NumeroObjeto = "04"
+MiPapa = NodePath("..")
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="UI_Opciones" parent="." instance=ExtResource("8_p526u")]
+
+[node name="FadeIn" parent="." instance=ExtResource("8_mby5o")]
+
+[node name="Salir_puzzle" parent="." instance=ExtResource("9_f0s6u")]
+visible = false
+
+[editable path="SubViewportContainer"]
+[editable path="Puzzle_zone"]
+[editable path="Puzzle_zone/area_piezza"]
+[editable path="Puzzle_zone/area_piezza2"]
+[editable path="Puzzle_zone/Pieza2"]
+[editable path="Puzzle_zone/area_piezza3"]
+[editable path="Puzzle_zone/Pieza3"]
+[editable path="Puzzle_zone/area_piezza4"]

@@ -1,0 +1,164 @@
+[gd_scene load_steps=13 format=3 uid="uid://dgtpobmcqqbl"]
+
+[ext_resource type="Script" path="res://nodos/text_item.gd" id="1_hywwb"]
+[ext_resource type="Texture2D" uid="uid://baet0kg8vig26" path="res://assets/Icon/puzzle_icon.png" id="2_y7u1x"]
+[ext_resource type="Texture2D" uid="uid://838r1jbbhqgt" path="res://icon.png" id="3_md6rg"]
+[ext_resource type="FontFile" uid="uid://bxhbbvy48ryly" path="res://Fuente/VCR_OSD_MONO_1.001.ttf" id="4_d4b3s"]
+[ext_resource type="FontFile" uid="uid://c1mtdl75tm6yo" path="res://Fuente/BestTen-DOT.otf" id="5_cl85y"]
+[ext_resource type="AudioStream" uid="uid://b66e8jtx0aap1" path="res://audio/Papel.ogg" id="6_r0mq2"]
+[ext_resource type="AudioStream" uid="uid://dq330iefc6nx1" path="res://audio/Click1.ogg" id="7_5cwbi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kjf7p"]
+size = Vector3(12.6668, 3.0746, 11.9983)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m7oa0"]
+size = Vector3(0.745272, 0.169627, 0.645755)
+
+[sub_resource type="Animation" id="Animation_pgjn8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D/CollisionShape3D/Node3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_27nv7"]
+resource_name = "interactuar"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D/CollisionShape3D/Node3D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.8, 1.8, 1.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5j6hl"]
+_data = {
+"RESET": SubResource("Animation_pgjn8"),
+"interactuar": SubResource("Animation_27nv7")
+}
+
+[node name="text_item" type="Node3D"]
+script = ExtResource("1_hywwb")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_kjf7p")
+
+[node name="Node3D" type="Node3D" parent="Area3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.196503, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D/CollisionShape3D/Node3D"]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, 0)
+visible = false
+billboard = 1
+fixed_size = true
+texture = ExtResource("2_y7u1x")
+
+[node name="Area3D2" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+shape = SubResource("BoxShape3D_m7oa0")
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D2/CollisionShape3D"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0)
+texture = ExtResource("3_md6rg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5j6hl")
+}
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -674.0
+offset_top = -433.5
+offset_right = 674.0
+offset_bottom = 433.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.568627)
+
+[node name="Label" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -225.0
+offset_right = 608.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_d4b3s")
+theme_override_font_sizes/font_size = 30
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque at purus at pharetra. Curabitur vel lobortis nibh, sit amet cursus diam. Fusce finibus ornare tristique. Vivamus tempus urna in dapibus pellentesque. Nulla vitae lobortis arcu. Phasellus molestie ipsum non purus fermentum pharetra. Phasellus non fermentum odio, placerat semper urna. Cras purus massa, lacinia sed augue vitae, vulputate tempus turpis. Fusce dictum, arcu ut consectetur convallis, neque arcu cursus ipsum, eu luctus leo lacus ac nibh. Cras quis tincidunt odio. Sed tempus venenatis tortor ut aliquet. Quisque ut porta nulla, in varius augue. Nam venenatis, eros a molestie molestie, quam lorem hendrerit dui, quis rhoncus eros lacus sit amet nisl. Aliquam non arcu euismod, commodo urna eget, interdum augue. Suspendisse metus neque, fermentum at cursus in, finibus at odio. Vestibulum nibh lectus, pellentesque quis magna ut, tristique aliquet est. "
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -122.0
+offset_right = 75.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_cl85y")
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[node name="Papel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_r0mq2")
+bus = &"FX"
+
+[node name="Click2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5cwbi")
+bus = &"FX"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="pressed" from="Control/ColorRect/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,204 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcwlve4obbj66"]
+
+[ext_resource type="Script" path="res://Chat/Chat_box.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://diyfb6136yuay" path="res://Fuente/Roboto-Regular.ttf" id="2_ap460"]
+
+[sub_resource type="Animation" id="3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="4"]
+resource_name = "SetAnim_Text"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uravy"]
+_data = {
+"RESET": SubResource("3"),
+"SetAnim_Text": SubResource("4")
+}
+
+[node name="Chat_box" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0.709804)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -647.214
+offset_top = 234.18
+offset_right = 647.214
+offset_bottom = 431.82
+color = Color(0, 0, 0, 0.380392)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -617.5
+offset_top = 273.0
+offset_right = 617.5
+offset_bottom = 393.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_ap460")
+theme_override_font_sizes/font_size = 30
+text = "Aaaa
+"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_uravy")
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -534.0
+offset_top = -436.0
+offset_right = 534.63
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Pregunta01" type="Button" parent="CanvasLayer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Pregunta04")
+theme_override_fonts/font = ExtResource("2_ap460")
+theme_override_font_sizes/font_size = 30
+text = "Tesss"
+
+[node name="Pregunta02" type="Button" parent="CanvasLayer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Pregunta01")
+focus_neighbor_bottom = NodePath("../Pregunta03")
+theme_override_fonts/font = ExtResource("2_ap460")
+theme_override_font_sizes/font_size = 30
+text = "Tesss"
+
+[node name="Pregunta03" type="Button" parent="CanvasLayer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../Pregunta04")
+theme_override_fonts/font = ExtResource("2_ap460")
+theme_override_font_sizes/font_size = 30
+text = "Tesss"
+
+[node name="Pregunta04" type="Button" parent="CanvasLayer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Pregunta03")
+focus_neighbor_bottom = NodePath("../Pregunta01")
+theme_override_fonts/font = ExtResource("2_ap460")
+theme_override_font_sizes/font_size = 30
+text = "Tesss"
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ap460")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Click to Edit"
+clear_button_enabled = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = 37.9999
+offset_right = 388.08
+offset_bottom = 190.32
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Boton1" type="Button" parent="CanvasLayer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Boton2")
+focus_neighbor_bottom = NodePath("../Boton2")
+theme_override_fonts/font = ExtResource("2_ap460")
+theme_override_font_sizes/font_size = 30
+text = "aaaaaa"
+
+[node name="Boton2" type="Button" parent="CanvasLayer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Boton1")
+focus_neighbor_bottom = NodePath("../Boton1")
+theme_override_fonts/font = ExtResource("2_ap460")
+theme_override_font_sizes/font_size = 30
+text = "aaaaaa"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.039
+one_shot = true
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Pregunta01" to="." method="_on_Pregunta01_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Pregunta02" to="." method="_on_Pregunta02_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Pregunta03" to="." method="_on_Pregunta03_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Pregunta04" to="." method="_on_Pregunta04_pressed"]
+[connection signal="focus_entered" from="CanvasLayer/VBoxContainer/LineEdit" to="." method="_on_LineEdit_focus_entered"]
+[connection signal="text_submitted" from="CanvasLayer/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer2/Boton1" to="." method="_on_Boton1_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer2/Boton2" to="." method="_on_Boton2_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

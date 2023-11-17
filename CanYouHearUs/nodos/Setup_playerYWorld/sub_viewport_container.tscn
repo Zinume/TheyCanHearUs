@@ -1,0 +1,116 @@
+[gd_scene load_steps=18 format=3 uid="uid://cm32b1o1ir24r"]
+
+[ext_resource type="Shader" path="res://shader/Ps1.gdshader" id="1_veeg8"]
+[ext_resource type="Texture2D" uid="uid://csv380lstrf0y" path="res://assets/Shader_assets/bayer2tile16.png" id="2_hrsyk"]
+[ext_resource type="Script" path="res://nodos/Setup_playerYWorld/WorldEnvironment.gd" id="3_8wkjd"]
+[ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://addons/character-controller/example/main/player.tscn" id="3_kuv6r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lb4rf"]
+shader = ExtResource("1_veeg8")
+shader_parameter/levels = 16
+shader_parameter/threshold = 1.0
+shader_parameter/colors = 15
+shader_parameter/pixelate = 5.445
+shader_parameter/dither_texture = ExtResource("2_hrsyk")
+
+[sub_resource type="Gradient" id="Gradient_jebea"]
+colors = PackedColorArray(0.0520006, 0.0215055, 0.0215064, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aiher"]
+gradient = SubResource("Gradient_jebea")
+fill_from = Vector2(0, 0.0042735)
+
+[sub_resource type="Environment" id="Environment_53f22"]
+resource_local_to_scene = true
+background_mode = 1
+background_color = Color(0.211765, 0.286275, 0.443137, 1)
+background_energy_multiplier = 0.3
+ambient_light_source = 2
+ambient_light_color = Color(0.0431373, 0.0666667, 0.180392, 1)
+ambient_light_energy = 2.0
+ssao_enabled = true
+ssao_radius = 3.0
+ssao_intensity = 1.55
+ssao_power = 7.64736
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.152941, 0.168627, 0.188235, 1)
+fog_light_energy = 5.62
+volumetric_fog_enabled = true
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture2D_aiher")
+
+[sub_resource type="Gradient" id="Gradient_te0a4"]
+offsets = PackedFloat32Array(0, 0.544803, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.482353, 0.482353, 0.482353, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c0p2m"]
+gradient = SubResource("Gradient_te0a4")
+
+[sub_resource type="Curve" id="Curve_2n26l"]
+min_value = -1.0
+_data = [Vector2(0.0193548, 0.263158), 0.0, 0.0, 0, 0, Vector2(0.790323, -0.0736842), 0.0, 0.0, 0, 0, Vector2(1, 0.494737), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tudkg"]
+curve = SubResource("Curve_2n26l")
+
+[sub_resource type="Curve" id="Curve_6c2ft"]
+_data = [Vector2(0.00967742, 0.0315789), 0.0, 0.0, 0, 0, Vector2(0.519355, 0.0315789), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tlcs0"]
+curve = SubResource("Curve_6c2ft")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fhe58"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 10)
+gravity = Vector3(0, 0.01, 0)
+linear_accel_curve = SubResource("CurveTexture_tudkg")
+scale_curve = SubResource("CurveTexture_tlcs0")
+color_ramp = SubResource("GradientTexture1D_c0p2m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aftjb"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.45098, 0.45098, 0.45098, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_qxqxm"]
+material = SubResource("StandardMaterial3D_aftjb")
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+material = SubResource("ShaderMaterial_lb4rf")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_53f22")
+script = ExtResource("3_8wkjd")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+audio_listener_enable_3d = true
+physics_object_picking = true
+physics_object_picking_sort = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Player" parent="SubViewport" instance=ExtResource("3_kuv6r")]
+LuzLinterna = 2.0
+speed = 3
+sprint_speed_multiplier = 1.5
+step_interval = 2.5
+jump_height = 0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="SubViewport/Player"]
+amount = 20
+lifetime = 10.0
+visibility_aabb = AABB(-3.80908, -4, -4, 8, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_fhe58")
+draw_pass_1 = SubResource("SphereMesh_qxqxm")

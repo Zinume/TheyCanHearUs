@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://nlyq0blla1cs"]
+
+[ext_resource type="PackedScene" uid="uid://b7dwtyw0wwbkc" path="res://nodos/Puzzle04/area_puzzle_04.tscn" id="1_1cqa0"]
+[ext_resource type="Script" path="res://nodos/Puzzle04/base_puzzle_04.gd" id="1_n8ns5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_682dp"]
+
+[node name="BasePuzzle_04_01" type="Node3D"]
+script = ExtResource("1_n8ns5")
+CantidadBotonesCombinacionSecreta = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.61717, 0, 0, 0, 1, 0, 0, 0, 2.0784, 0, 0, 0)
+mesh = SubResource("BoxMesh_682dp")
+
+[node name="AreaPuzzle04_01" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("1_1cqa0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.561173, 0.765719, 0)
+MiPapa = NodePath("..")
+
+[node name="AreaPuzzle04_02" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("1_1cqa0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100913, 0.766917, 0)
+pieza = "pieza2"
+MiPapa = NodePath("..")
+
+[node name="AreaPuzzle04_03" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("1_1cqa0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.808294, 0.77691, 0)
+pieza = "pieza3"
+MiPapa = NodePath("..")

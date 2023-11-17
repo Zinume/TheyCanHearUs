@@ -1,0 +1,260 @@
+[gd_scene load_steps=6 format=3 uid="uid://mwx7pjrq25um"]
+
+[ext_resource type="Script" path="res://UI/UI_Opciones.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://c1mtdl75tm6yo" path="res://Fuente/BestTen-DOT.otf" id="2_kuhs6"]
+[ext_resource type="AudioStream" uid="uid://byp8b4ns4q6wx" path="res://audio/Click2.ogg" id="3_678dp"]
+[ext_resource type="AudioStream" uid="uid://dq330iefc6nx1" path="res://audio/Click1.ogg" id="4_j63ap"]
+
+[sub_resource type="Theme" id="Theme_0sabb"]
+default_font = ExtResource("2_kuhs6")
+default_font_size = 30
+
+[node name="UI_Opciones" type="CanvasLayer" node_paths=PackedStringArray("Fullscreen", "Idioma", "Save", "Back", "Exit", "Brightness", "Mouse_Sen", "GeneralVSlider", "MusicVSlider", "VoiceVSlider", "SfxSlider")]
+script = ExtResource("2")
+Fullscreen = NodePath("VBoxContainer/Fullscreen")
+Idioma = NodePath("VBoxContainer/Idioma")
+Save = NodePath("VBoxContainer/Save")
+Back = NodePath("VBoxContainer/Back")
+Exit = NodePath("VBoxContainer/Exit")
+Brightness = NodePath("VBoxContainer2/Brightness/Brightness")
+Mouse_Sen = NodePath("VBoxContainer2/MouseSensitivity/MouseSensitivity")
+GeneralVSlider = NodePath("VBoxContainer2/GeneralVolumen/GeneralVSlider")
+MusicVSlider = NodePath("VBoxContainer2/MusicVolumen/MusicSlider")
+VoiceVSlider = NodePath("VBoxContainer2/VoiceVolumen/VoiceSlider")
+SfxSlider = NodePath("VBoxContainer2/SFXVolumen/SFXSlider")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 5.0
+offset_top = -15.0
+offset_right = 1933.0
+offset_bottom = 1090.0
+color = Color(0, 0, 0, 0.462745)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -334.5
+offset_right = 1037.0
+offset_bottom = 334.5
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Fullscreen" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../VBoxContainer2/MouseSensitivity/MouseSensitivity")
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_right = NodePath("../../VBoxContainer2/MouseSensitivity/MouseSensitivity")
+focus_neighbor_bottom = NodePath("../Save")
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "Fullscreen"
+
+[node name="Idioma" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_0sabb")
+alignment = 1
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Spanish"
+popup/item_1/id = 1
+
+[node name="Save" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../VBoxContainer2/GeneralVolumen/GeneralVSlider")
+focus_neighbor_top = NodePath("../Fullscreen")
+focus_neighbor_right = NodePath("../../VBoxContainer2/GeneralVolumen/GeneralVSlider")
+focus_neighbor_bottom = NodePath("../Back")
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "Save"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../VBoxContainer2/MusicVolumen/MusicSlider")
+focus_neighbor_top = NodePath("../Save")
+focus_neighbor_right = NodePath("../../VBoxContainer2/MusicVolumen/MusicSlider")
+focus_neighbor_bottom = NodePath("../Exit")
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "Back to Game"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../VBoxContainer2/VoiceVolumen/VoiceSlider")
+focus_neighbor_top = NodePath("../Back")
+focus_neighbor_right = NodePath("../../VBoxContainer2/VoiceVolumen/VoiceSlider")
+focus_neighbor_bottom = NodePath("../Fullscreen")
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "Back to Main Menu"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -789.0
+offset_top = -497.0
+offset_right = -54.0
+offset_bottom = 497.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Brightness" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer2/Brightness"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "Brightness"
+
+[node name="Brightness" type="HSlider" parent="VBoxContainer2/Brightness"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../../VBoxContainer/Fullscreen")
+focus_neighbor_right = NodePath("../../../VBoxContainer/Fullscreen")
+max_value = 5.0
+step = 0.1
+
+[node name="MouseSensitivity" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer2/MouseSensitivity"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "Mouse Sensitivity"
+
+[node name="MouseSensitivity" type="HSlider" parent="VBoxContainer2/MouseSensitivity"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../../VBoxContainer/Fullscreen")
+focus_neighbor_right = NodePath("../../../VBoxContainer/Fullscreen")
+max_value = 24.0
+
+[node name="GeneralVolumen" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer2/GeneralVolumen"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "General Volumen"
+
+[node name="GeneralVSlider" type="HSlider" parent="VBoxContainer2/GeneralVolumen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../../VBoxContainer/Save")
+focus_neighbor_right = NodePath("../../../VBoxContainer/Save")
+min_value = -15.0
+max_value = 6.0
+
+[node name="MusicVolumen" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer2/MusicVolumen"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "Music Volumen"
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer2/MusicVolumen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../../VBoxContainer/Back")
+focus_neighbor_right = NodePath("../../../VBoxContainer/Back")
+min_value = -15.0
+max_value = 6.0
+
+[node name="VoiceVolumen" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer2/VoiceVolumen"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "Voice Volumen"
+
+[node name="VoiceSlider" type="HSlider" parent="VBoxContainer2/VoiceVolumen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../../VBoxContainer/Exit")
+focus_neighbor_right = NodePath("../../../VBoxContainer/Exit")
+min_value = -15.0
+max_value = 6.0
+
+[node name="SFXVolumen" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer2/SFXVolumen"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "SFX Volumen"
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer2/SFXVolumen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../../VBoxContainer/Exit")
+focus_neighbor_right = NodePath("../../../VBoxContainer/Exit")
+min_value = -15.0
+max_value = 6.0
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_678dp")
+bus = &"FX"
+
+[node name="Click2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_j63ap")
+
+[connection signal="pressed" from="VBoxContainer/Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="item_selected" from="VBoxContainer/Idioma" to="." method="_on_idioma_item_selected"]
+[connection signal="pressed" from="VBoxContainer/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="value_changed" from="VBoxContainer2/Brightness/Brightness" to="." method="_on_brightness_value_changed"]
+[connection signal="value_changed" from="VBoxContainer2/MouseSensitivity/MouseSensitivity" to="." method="_on_mouse_sensitivity_value_changed"]
+[connection signal="value_changed" from="VBoxContainer2/GeneralVolumen/GeneralVSlider" to="." method="_on_GeneralVSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer2/MusicVolumen/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer2/VoiceVolumen/VoiceSlider" to="." method="_on_VoiceSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer2/SFXVolumen/SFXSlider" to="." method="_on_SFXSlider_value_changed"]

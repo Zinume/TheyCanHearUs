@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgua0n0rleyrm"]
+
+[ext_resource type="Script" path="res://nodos/Puzzle/AreaPuzzle.gd" id="1_2fqk0"]
+[ext_resource type="PackedScene" uid="uid://bfgqbxljflbre" path="res://nodos/Puzzle/Pieza.tscn" id="2_feejc"]
+[ext_resource type="PackedScene" uid="uid://bjrj8j2yww0am" path="res://nodos/Puzzle/area_piezza.tscn" id="3_un2qg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_61aao"]
+resource_local_to_scene = true
+size = Vector3(0.387946, 0.0642081, 0.343746)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o2yry"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s0jpv"]
+resource_local_to_scene = true
+size = Vector3(0.485362, 0.0915234, 0.477921)
+
+[node name="AreaPuzzle01_01" type="Node3D" node_paths=PackedStringArray("NumeroLugar01", "NumeroLugar02", "NumeroLugar03")]
+script = ExtResource("1_2fqk0")
+victoria = "0102"
+NumeroLugar01 = NodePath("area_piezza")
+NumeroLugar02 = NodePath("area_piezza2")
+NumeroLugar03 = NodePath("area_piezza3")
+
+[node name="Pieza" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("2_feejc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701967, 0.793359, 0.298572)
+MiPapa = NodePath("..")
+
+[node name="area_piezza" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("3_un2qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.152849, 0.778419, -0.150238)
+Lugar = "01"
+MiPapa = NodePath("..")
+
+[node name="CollisionShape3D" parent="area_piezza" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0120947, 0)
+shape = SubResource("BoxShape3D_61aao")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.11673, 0, 0, 0, 1, 0, 0, 0, 2.56745, 0, 0, 0)
+mesh = SubResource("BoxMesh_o2yry")
+
+[node name="area_piezza2" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("3_un2qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.693116, 0.782974, 0)
+Lugar = "02"
+MiPapa = NodePath("..")
+
+[node name="CollisionShape3D" parent="area_piezza2" index="0"]
+shape = SubResource("BoxShape3D_s0jpv")
+
+[node name="Pieza2" parent="." instance=ExtResource("2_feejc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28288, 0.788352, 0.333291)
+
+[node name="area_piezza3" parent="." node_paths=PackedStringArray("MiPapa") instance=ExtResource("3_un2qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14949, 0.72604, 0.753153)
+Lugar = "03"
+MiPapa = NodePath("..")
+
+[editable path="area_piezza"]
+[editable path="area_piezza2"]

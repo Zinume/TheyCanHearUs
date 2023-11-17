@@ -1,0 +1,234 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkn4b6jq8vuys"]
+
+[ext_resource type="FontFile" uid="uid://c1mtdl75tm6yo" path="res://Fuente/BestTen-DOT.otf" id="1_pvn24"]
+[ext_resource type="Script" path="res://nodos/inventariomenu.gd" id="1_riidl"]
+[ext_resource type="FontFile" uid="uid://bxhbbvy48ryly" path="res://Fuente/VCR_OSD_MONO_1.001.ttf" id="2_xrggx"]
+[ext_resource type="Texture2D" uid="uid://838r1jbbhqgt" path="res://icon.png" id="3_ht136"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5rp1c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ht136")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="inventario" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_riidl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.180392)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -932.0
+offset_top = -509.0
+offset_right = 932.0
+offset_bottom = 509.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.180392)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1393.0
+offset_top = -309.5
+offset_right = -93.0
+offset_bottom = 439.5
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -369.0
+offset_top = -250.0
+offset_right = 811.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_xrggx")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ItemDescripcion" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 591.0
+offset_top = 290.0
+offset_right = 631.0
+offset_bottom = 330.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ItemDescripcion"]
+position = Vector2(278, 320)
+sprite_frames = SubResource("SpriteFrames_5rp1c")
+speed_scale = 0.0
+
+[node name="Label" type="Label" parent="ItemDescripcion"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = -2.0
+offset_right = 1190.0
+offset_bottom = 651.0
+theme_override_fonts/font = ExtResource("2_xrggx")
+theme_override_font_sizes/font_size = 30
+autowrap_mode = 3
+
+[node name="Secciones" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -648.0
+offset_top = 74.0
+offset_right = 648.0
+offset_bottom = 176.0
+grow_horizontal = 2
+theme_override_constants/separation = 50
+
+[node name="Diario" type="Button" parent="Secciones"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Diario"
+
+[node name="Items" type="Button" parent="Secciones"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Items"
+
+[node name="DiariosSeccion" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 97.0
+offset_top = -309.0
+offset_right = 497.0
+offset_bottom = 309.0
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Diario1" type="Button" parent="DiariosSeccion"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Diario 1"
+
+[node name="Diario2" type="Button" parent="DiariosSeccion"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Diario 2"
+
+[node name="Diario3" type="Button" parent="DiariosSeccion"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Diario 3"
+
+[node name="Diario4" type="Button" parent="DiariosSeccion"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Diario 4"
+
+[node name="Diario5" type="Button" parent="DiariosSeccion"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Diario 5"
+
+[node name="ItemsSeccion" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 97.0
+offset_top = -309.0
+offset_right = 497.0
+offset_bottom = 309.0
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Item1" type="Button" parent="ItemsSeccion"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Item 1"
+
+[node name="Item2" type="Button" parent="ItemsSeccion"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Item 2"
+
+[node name="Item3" type="Button" parent="ItemsSeccion"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Item 3"
+
+[node name="Item4" type="Button" parent="ItemsSeccion"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Item 4"
+
+[node name="Item5" type="Button" parent="ItemsSeccion"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pvn24")
+theme_override_font_sizes/font_size = 30
+text = "Item 5"
+
+[connection signal="pressed" from="Secciones/Diario" to="." method="_on_diario_pressed"]
+[connection signal="pressed" from="Secciones/Items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="DiariosSeccion/Diario1" to="." method="_on_diario_1_pressed"]
+[connection signal="pressed" from="DiariosSeccion/Diario2" to="." method="_on_diario_2_pressed"]
+[connection signal="pressed" from="DiariosSeccion/Diario3" to="." method="_on_diario_3_pressed"]
+[connection signal="pressed" from="DiariosSeccion/Diario4" to="." method="_on_diario_4_pressed"]
+[connection signal="pressed" from="DiariosSeccion/Diario5" to="." method="_on_diario_5_pressed"]
+[connection signal="pressed" from="ItemsSeccion/Item1" to="." method="_on_item_1_pressed"]
+[connection signal="pressed" from="ItemsSeccion/Item2" to="." method="_on_item_2_pressed"]
+[connection signal="pressed" from="ItemsSeccion/Item3" to="." method="_on_item_3_pressed"]
+[connection signal="pressed" from="ItemsSeccion/Item4" to="." method="_on_item_4_pressed"]
+[connection signal="pressed" from="ItemsSeccion/Item5" to="." method="_on_item_5_pressed"]

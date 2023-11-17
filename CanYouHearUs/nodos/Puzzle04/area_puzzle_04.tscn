@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7dwtyw0wwbkc"]
+
+[ext_resource type="Script" path="res://nodos/Puzzle04/area_puzzle_04.gd" id="1_xfu5j"]
+[ext_resource type="Texture2D" uid="uid://838r1jbbhqgt" path="res://icon.png" id="2_e01la"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pju0i"]
+size = Vector3(0.34474, 0.604025, 0.355281)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxk3x"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8mro0"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_rxk3x")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5w0eo"]
+
+[node name="AreaPuzzle04_01" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_xfu5j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_pju0i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8mro0")
+mesh = SubResource("CapsuleMesh_5w0eo")
+
+[node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D/MeshInstance3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0.728604)
+texture = ExtResource("2_e01la")

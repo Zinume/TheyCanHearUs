@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AudioInteract" load_steps=4 format=3 uid="uid://boafje76qrf27"]
+
+[ext_resource type="Script" path="res://addons/character-controller/example/main/audios/audio_interact.gd" id="1_h7qps"]
+[ext_resource type="AudioStream" uid="uid://k4u20e8xmj2" path="res://audio/steps/Footsteps_Bush.ogg" id="1_o2b5m"]
+[ext_resource type="AudioStream" uid="uid://3wrx0afy1igh" path="res://audio/steps/Footsteps_Bush2.ogg" id="2_2x5ct"]
+
+[resource]
+script = ExtResource("1_h7qps")
+jump_audio = ExtResource("1_o2b5m")
+landed_audio = ExtResource("2_2x5ct")
+step_audios = Array[AudioStream]([ExtResource("2_2x5ct"), ExtResource("2_2x5ct"), ExtResource("2_2x5ct"), ExtResource("2_2x5ct")])

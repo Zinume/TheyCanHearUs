@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://plfps25uax8v"]
+
+[ext_resource type="Script" path="res://nodos/pick_item.gd" id="1_7r3u6"]
+[ext_resource type="AudioStream" uid="uid://ba5iu4e6mi86u" path="res://audio/Click40.ogg" id="2_eck88"]
+[ext_resource type="AudioStream" uid="uid://dq330iefc6nx1" path="res://audio/Click1.ogg" id="3_ciq20"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1dk5u"]
+resource_local_to_scene = true
+size = Vector3(1.26458, 1.52559, 1.23913)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nyooa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8d1c2"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_nyooa")
+
+[sub_resource type="BoxMesh" id="BoxMesh_3vmb8"]
+resource_local_to_scene = true
+
+[node name="RigidBody3D" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_7r3u6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1dk5u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_8d1c2")
+mesh = SubResource("BoxMesh_3vmb8")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_eck88")
+bus = &"FX"
+
+[node name="Sound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ciq20")
+bus = &"FX"

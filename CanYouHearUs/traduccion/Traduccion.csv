@@ -1,0 +1,128 @@
+key,en,es
+Start,Start,Comenzar
+Load,Load,Cargar
+Option,Option,Opciones
+Exit,Exit,Salida
+Yes,Yes,Si
+No,No,No
+ERASE,"Do you want to delete your previous file?
+It won't be possible to recover it once deleted.","Deseas borrar tu partida anterior?
+No será posible recuperarla una vez borrada."
+,,
+Fullscreen,Fullscreen,Pantalla Completa
+Save,Save,Guardar
+Back to Game,Back to Game,Devuelta al Juego
+Back to Main Menu,Back to Main Menu,Volver al Menú
+Brightness,Brightness,Brillo
+Mouse Sensitivity,Mouse Sensitivity,Sensibilidad Mouse
+General Volumen,General Volumen,Volumen General
+Music Volumen,Music Volumen,Volumen Música
+Voice Volumen,Voice Volumen,Volumen Voz
+SFX Volumen,SFX Volumen,Volumen SFX
+,,
+,,
+Diario,Diary,Diario
+Items,Items,Articulos
+Diario 1,Diary 1,Diario 1
+Diario 2,Diary 2,Diario 2
+Diario 3,Diary 3,Diario 3
+Diario 4,Diary 4,Diario 4
+Diario 5,Diary 5,Diario 5
+Item 1,Item 1,Articulo 1
+Item 2,Item 2,Articulo 2
+Item 3,Item 3,Articulo 3
+Item 4,Item 4,Articulo 4
+Item 5,Item 5,Articulo 5
+,,
+QUESTION_1,First Question,Primera Pregunta
+QUESTION_2,Second Question,Segunda Pregunta
+QUESTION_3,Third Question,Tercera Pregunta
+QUESTION_4,Fourty Question,Cuarta Pregunta
+,,
+Llave legendaria,Legendary Key,Llave legendaria
+Llave podrida,Rousty Key,Llave podrida
+,,
+,,
+ITEM_1,"11 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
+		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, fin","11 español Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
+		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, fin"
+ITEM_2,"22 Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate.    Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in.    Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin","22 ESPAÑOL Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate. 
+		Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in. 
+		Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin"
+ITEM_3,"33 Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
+		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
+		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
+		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. Fin","33 ESPAÑOL Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
+		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
+		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
+		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. fin"
+ITEM_4,"44 Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
+		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
+		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus, fin","44 ESPAÑOL Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
+		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
+		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus, fin"
+ITEM_5,"55 Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
+		Phasellus rutrum iaculis rhoncus. Nulla pellentesque odio vel elit dapibus tincidunt. Aenean non fermentum libero, vitae ultricies nisi. 
+		Donec vitae lorem consequat, interdum arcu vel, porta leo. Aenean ex turpis, accumsan sit amet nisl non, vestibulum dapibus nunc. Praesent varius sed nulla eget pellentesque, fin","55 ESPAÑOL Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
+		Phasellus rutrum iaculis rhoncus. Nulla pellentesque odio vel elit dapibus tincidunt. Aenean non fermentum libero, vitae ultricies nisi. 
+		Donec vitae lorem consequat, interdum arcu vel, porta leo. Aenean ex turpis, accumsan sit amet nisl non, vestibulum dapibus nunc. Praesent varius sed nulla eget pellentesque, fin"
+,,
+DIARY_1,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
+		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, es el firrr","ESPAÑOL Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
+		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, es el firrr"
+DIARY_2,"Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate. 
+		Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in. 
+		Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin","ESPAÑOL Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate. 
+		Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in. 
+		Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin"
+DIARY_3,"Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
+		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
+		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
+		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. fin ","ESPAÑOL Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
+		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
+		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
+		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. fin "
+DIARY_4,"Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
+		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
+		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus. fin ","ESPAÑOL Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
+		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
+		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus. fin "
+DIARY_5,"Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
+		Phasellus rutrum iaculis rhoncus. Nulla pellentesque odio vel elit dapibus tincidunt. Aenean non fermentum libero, vitae ultricies nisi. 
+		Donec vitae lorem consequat, interdum arcu vel, porta leo. Aenean ex turpis, accumsan sit amet nisl non, vestibulum dapibus nunc. Praesent varius sed nulla eget pellentesque. Fin","ESPAÑOL Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
+		Phasellus rutrum iaculis rhoncus. Nulla pellentesque odio vel elit dapibus tincidunt. Aenean non fermentum libero, vitae ultricies nisi. 
+		Donec vitae lorem consequat, interdum arcu vel, porta leo. Aenean ex turpis, accumsan sit amet nisl non, vestibulum dapibus nunc. Praesent varius sed nulla eget pellentesque. Fin"
+PISTA_1,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
+		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, es el firrr","ESPA Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
+		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, es el firrr"
+PISTA_2,"Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate. 
+		Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in. 
+		Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin","ESPA Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate. 
+		Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in. 
+		Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin"
+PISTA_3,"Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
+		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
+		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
+		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. fin ","ESPA Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
+		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
+		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
+		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. fin "
+PISTA_4,"Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
+		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
+		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus. fin ","ESPA Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
+		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
+		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus. fin "
+PISTA_5,"Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
+		Phasellus rutrum iaculis rhoncus. Nulla pellentesque odio vel elit dapibus tincidunt. Aenean non fermentum libero, vitae ultricies nisi. 
+		Donec vitae lorem consequat, interdum arcu vel, porta leo. Aenean ex turpis, accumsan sit amet nisl non, vestibulum dapibus nunc. Praesent varius sed nulla eget pellentesque. Fin","ESPA Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
+		Phasellus rutrum iaculis rhoncus. Nulla pellentesque odio vel elit dapibus tincidunt. Aenean non fermentum libero, vitae ultricies nisi. 
+		Donec vitae lorem consequat, interdum arcu vel, porta leo. Aenean ex turpis, accumsan sit amet nisl non, vestibulum dapibus nunc. Praesent varius sed nulla eget pellentesque. Fin"
+,,
+NPC_1_LINE_1,David: My name is David and this is a test dialog,David:  Hola este es un dialogo de prueba y me llamo 
+NPC_1_LINE_2,This is the next line,Y esto es lo que sigue

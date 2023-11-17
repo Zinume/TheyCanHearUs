@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1vacrh3lbb8q"]
+
+[ext_resource type="Material" uid="uid://ckvcdcn2iue87" path="res://addons/character-controller/example/main/materials/wood.tres" id="1_kqnrl"]
+[ext_resource type="PhysicsMaterial" uid="uid://bu0j6ft86do4l" path="res://addons/character-controller/example/main/physics/wood.tres" id="2_ev1gm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qmaip"]
+size = Vector3(40, 3.03, 4)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_okliu"]
+data = PackedVector3Array(-20, 0.25, 2, 20, 0.25, 2, -20, -0.25, 2, 20, 0.25, 2, 20, -0.25, 2, -20, -0.25, 2, 20, 0.25, -2, -20, 0.25, -2, 20, -0.25, -2, -20, 0.25, -2, -20, -0.25, -2, 20, -0.25, -2, 20, 0.25, 2, 20, 0.25, -2, 20, -0.25, 2, 20, 0.25, -2, 20, -0.25, -2, 20, -0.25, 2, -20, 0.25, -2, -20, 0.25, 2, -20, -0.25, -2, -20, 0.25, 2, -20, -0.25, 2, -20, -0.25, -2, 20, 0.25, 2, -20, 0.25, 2, 20, 0.25, -2, -20, 0.25, 2, -20, 0.25, -2, 20, 0.25, -2, -20, -0.25, 2, 20, -0.25, 2, -20, -0.25, -2, 20, -0.25, 2, 20, -0.25, -2, -20, -0.25, -2)
+
+[node name="Bridge" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 13.5)
+material_override = ExtResource("1_kqnrl")
+mesh = SubResource("BoxMesh_qmaip")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = ExtResource("2_ev1gm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_okliu")

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccuve1mvlei2w"]
+
+[ext_resource type="Script" path="res://nodos/key_item.gd" id="1_mab3h"]
+[ext_resource type="AudioStream" uid="uid://ro1lknt3f0ji" path="res://audio/Keys.ogg" id="2_s3tqe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pwqwf"]
+size = Vector3(0.497826, 0.538636, 0.61245)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hy3cl"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idedc"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_hy3cl")
+
+[sub_resource type="TorusMesh" id="TorusMesh_4pr6h"]
+lightmap_size_hint = Vector2i(11, 5)
+inner_radius = 0.046
+outer_radius = 0.291
+
+[node name="Key_item" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_mab3h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_pwqwf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_idedc")
+mesh = SubResource("TorusMesh_4pr6h")
+
+[node name="Key" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s3tqe")
+volume_db = 5.0
+bus = &"FX"
+
+[connection signal="finished" from="Key" to="." method="_on_key_finished"]
