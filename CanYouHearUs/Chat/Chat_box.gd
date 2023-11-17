@@ -8,7 +8,7 @@ var CualNPCSoy = 'npc01'
 var TextoPersonaje00 = 0
 var EstoyEscribiendo = false
 @onready var Lvl = get_parent()
-#@export var NPC_sprites : CanvasLayer
+
 
 
 var TextoEdit = ''
@@ -41,7 +41,7 @@ var VolverMenu:Array = [
 
 func _ready():
 	pass
-	#CheckSprite()
+	
 	
 # warning-ignore:unused_argument
 func _process(_delta):
@@ -51,7 +51,6 @@ func _process(_delta):
 	#	ActualizarDialogosConTextoModificado()
 	#	CheckRutaHistoria()
 	#	ChatBox_activado()
-	#	CambiarSpriteNPC('Player')
 	#	Setear_text(DialogosNPC00[TextoPersonaje00])
 	#	AnimacionTexto()
 	#	if TextoPersonaje00 in NpcArrays.AgregarTexto[CualNPCSoy] and !EstoyEscribiendo:
@@ -227,7 +226,7 @@ func ChatBox_activado():
 	$CanvasLayer.show()
 	#get_tree().paused = true
 	Globals.ModoChat = true
-	#CheckSprite()
+
 
 
 func ChatBox_desactivado():
@@ -235,7 +234,7 @@ func ChatBox_desactivado():
 	$CanvasLayer.hide()
 	#get_tree().paused = false
 	Globals.ModoChat = false
-	#CheckSprite()
+
 	
 
 
@@ -317,17 +316,6 @@ func CheckRutaHistoria(Npc: String):
 		TextoPersonaje00 = DialogosNpc.rutasNpc[Npc]["texto al que ir"+str(Globals.npc_historias[Npc])]
 		
 
-#func CheckSprite():
-#	if Globals.ModoChat:
-#		NPC_sprites.get_node("AnimatedSprite1").show() 
-#	else:
-#		NPC_sprites.get_node("AnimatedSprite1").hide()
-#		NPC_sprites.DetenerAnimacion()
-
-
-#func CambiarSpriteNPC(NombreNPC):
-#	NPC_sprites.get_node("AnimatedSprite1").animation = NombreNPC
-	
 	
 
 func TimerParaCambiarEstadoPreguntas():
