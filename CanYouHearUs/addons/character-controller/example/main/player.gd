@@ -36,6 +36,7 @@ var puedointeractuar = false
 var actual_rotation := Vector3()
 var BlurCamera = 10
 var ModoBlur = false
+@export var LinternaEncendida = true
 
 
 func _ready():
@@ -58,11 +59,9 @@ func _process(delta):
 	zoom()
 	colorPuntero()
 	
-	
-	
 
-
-func _physics_process(delta):	
+func _physics_process(delta):
+	linterna()
 	
 	if Globals.ModoPlay == true and !Globals.ModoOpciones and !Globals.ModoInventario and !Globals.ModoChat:
 		var is_valid_input := Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
@@ -149,3 +148,14 @@ func mirarNpc(pos:Vector3):
 	var tween = create_tween()
 	tween.tween_property(camara,"rotation",rot_queQuiero,1)
 	tween.parallel().tween_property(camara,"fov",40,1)
+
+func linterna():
+	if Input.is_action_just_pressed("Linterna") and !Globals.ModoOpciones and !Globals.ModoInventario and !Globals.ModoChat and !LinternaEncendida:
+		LinternaEncendida = true
+		$Linterna.play()
+		$Head/Camera/SpotLight3D.light_energy = LuzLinterna
+	elif Input.is_action_just_pressed("Linterna") and !Globals.ModoOpciones and !Globals.ModoInventario and !Globals.ModoChat and LinternaEncendida:
+		LinternaEncendida = false
+		$Linterna.play()
+		$Head/Camera/SpotLight3D.light_energy = 0
+

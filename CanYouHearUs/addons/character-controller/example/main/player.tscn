@@ -1,16 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://2oxdgu03lnbk"]
+[gd_scene load_steps=10 format=3 uid="uid://2oxdgu03lnbk"]
 
 [ext_resource type="PackedScene" uid="uid://8oy3xm2sff8" path="res://addons/character-controller/fps/fps_controller_3d.tscn" id="1_fbpun"]
 [ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="2_8r0nc"]
 [ext_resource type="Environment" uid="uid://b3cn01u84faiy" path="res://addons/character-controller/example/main/underwater.tres" id="3_dxksd"]
 [ext_resource type="Texture2D" uid="uid://vudj4joi6n60" path="res://assets/Shader_assets/t_flashlightpattern.png" id="4_m54bq"]
 [ext_resource type="PackedScene" uid="uid://wy18lh74jnwh" path="res://addons/character-controller/example/main/audios/player_audios.tscn" id="4_ux8kv"]
+[ext_resource type="Script" path="res://addons/character-controller/example/main/Mic.gd" id="6_mmskt"]
+[ext_resource type="AudioStream" uid="uid://ba5iu4e6mi86u" path="res://audio/Click40.ogg" id="7_1rstu"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0o3pb"]
 resource_local_to_scene = true
 
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2nvw5"]
+
 [node name="Player" groups=["Jugador"] instance=ExtResource("1_fbpun")]
+transform = Transform3D(0.98, 0, 0, 0, 0.98, 0, 0, 0, 0.98, 0, 0, 0)
 collision_mask = 17
+floor_block_on_wall = false
+floor_max_angle = 1.5708
 script = ExtResource("2_8r0nc")
 input_back_action_name = "move_backward"
 input_forward_action_name = "move_forward"
@@ -22,6 +29,7 @@ input_crouch_action_name = "move_crouch"
 input_fly_mode_action_name = "move_fly_mode"
 underwater_env = ExtResource("3_dxksd")
 LuzLinterna = 5.5
+LinternaEncendida = true
 mouse_sensitivity = 10.0
 
 [node name="Collision" parent="." index="0" groups=["jugador"]]
@@ -32,7 +40,7 @@ current = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.16612)
-light_energy = 3.578
+light_energy = 3.6
 light_projector = ExtResource("4_m54bq")
 shadow_enabled = true
 spot_range = 12.777
@@ -71,3 +79,25 @@ grow_vertical = 2
 [node name="CameraOrigin" type="Marker3D" parent="Head" index="2"]
 
 [node name="Player Audios" parent="." index="9" instance=ExtResource("4_ux8kv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.998993, 0)
+
+[node name="Mic" type="Node3D" parent="." index="10"]
+script = ExtResource("6_mmskt")
+
+[node name="ProgressBar" type="ProgressBar" parent="Mic" index="0"]
+offset_left = 1777.0
+offset_top = 247.0
+offset_right = 1838.0
+offset_bottom = 899.0
+max_value = 10.0
+fill_mode = 3
+show_percentage = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Mic/ProgressBar" index="0"]
+stream = SubResource("AudioStreamMicrophone_2nvw5")
+autoplay = true
+bus = &"Mic"
+
+[node name="Linterna" type="AudioStreamPlayer" parent="." index="11"]
+stream = ExtResource("7_1rstu")
+bus = &"FX"

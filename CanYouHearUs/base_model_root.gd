@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var chatBox : CanvasLayer
-@export var CualNpcSoy = "npc01"
+@export var CualNpcSoy = "npc02"
 @export var deboMirarAlJugadorEnChat = false
 
 @export var target : CharacterBody3D

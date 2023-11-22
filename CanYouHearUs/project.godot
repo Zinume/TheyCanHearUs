@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="They can hear us"
-run/main_scene="res://Test/node_2.tscn"
+run/main_scene="res://lvls/level_intro.tscn"
 config/features=PackedStringArray("4.1")
 run/max_fps=60
 config/icon="res://icon.png"
+
+[audio]
+
+driver/enable_input=true
 
 [autoload]
 
@@ -120,11 +124,21 @@ zoom={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
+Linterna={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"echo":false,"script":null)
+]
+}
 
 [internationalization]
 
 locale/translation_remaps={}
 locale/translations=PackedStringArray("res://traduccion/Traduccion.en.translation", "res://traduccion/Traduccion.es.translation")
+
+[navigation]
+
+3d/default_cell_size=1.0
+3d/default_cell_height=0.2
 
 [physics]
 

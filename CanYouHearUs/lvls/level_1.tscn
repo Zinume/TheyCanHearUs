@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://cyyu8yp82qr2f"]
+[gd_scene load_steps=45 format=3 uid="uid://cyyu8yp82qr2f"]
 
 [ext_resource type="PackedScene" uid="uid://cm32b1o1ir24r" path="res://nodos/Setup_playerYWorld/sub_viewport_container.tscn" id="1_ju21c"]
+[ext_resource type="Material" uid="uid://bdike8wpetg1b" path="res://addons/character-controller/example/main/materials/bricks.tres" id="2_0c4wb"]
 [ext_resource type="PackedScene" uid="uid://dse20mlldjpqq" path="res://nodos/vela.tscn" id="2_seebi"]
-[ext_resource type="Material" uid="uid://2ciy11rdndma" path="res://addons/character-controller/example/main/materials/grass.tres" id="2_xsr1b"]
+[ext_resource type="PhysicsMaterial" path="res://addons/character-controller/example/main/physics/grass.tres" id="3_1wyp0"]
 [ext_resource type="PackedScene" uid="uid://k0vwusitrb60" path="res://nodos/fade_in.tscn" id="3_mrg8t"]
 [ext_resource type="ArrayMesh" uid="uid://d22tsjnftcvx1" path="res://assets/Models/Object/arch.tres" id="5_oima6"]
 [ext_resource type="MeshLibrary" uid="uid://c80q578thwdlf" path="res://assets/Models/Libreria_arbol.tres" id="5_qrphe"]
@@ -24,8 +25,16 @@
 [ext_resource type="PackedScene" uid="uid://bcwlve4obbj66" path="res://Chat/Chat_box.tscn" id="22_qamhk"]
 [ext_resource type="ArrayMesh" uid="uid://bb3gnua4gf3ne" path="res://assets/Models/Object/Bar_silla.tres" id="23_dn8yg"]
 [ext_resource type="ArrayMesh" uid="uid://5gls87ne3hsr" path="res://assets/Models/Object/SillaSinBrazos.tres" id="24_7qa22"]
-[ext_resource type="ArrayMesh" uid="uid://baaidl75kthhq" path="res://assets/Models/Object/Door_interact.tres" id="25_h62dq"]
-[ext_resource type="ArrayMesh" uid="uid://5yq8x4eekcot" path="res://assets/Models/Object/Door_base.tres" id="26_n4dtk"]
+[ext_resource type="ArrayMesh" uid="uid://d1ox4lwu2sy80" path="res://assets/Models/Object/Cama.tres" id="27_476ib"]
+[ext_resource type="ArrayMesh" uid="uid://bdgh0kaxm8gll" path="res://assets/Models/Object/Tina.tres" id="28_ru0do"]
+[ext_resource type="ArrayMesh" uid="uid://daa82dyq63l55" path="res://assets/Models/Object/Lavado.tres" id="29_dibme"]
+[ext_resource type="ArrayMesh" uid="uid://de1nbxck5iq21" path="res://assets/Models/Object/Bano_alfombra.tres" id="30_k2eaq"]
+[ext_resource type="ArrayMesh" uid="uid://wy7k8m861dho" path="res://assets/Models/Object/Cama_2.tres" id="31_ertsk"]
+[ext_resource type="ArrayMesh" uid="uid://cxtbjcvwuyhr3" path="res://assets/Models/Object/Espejo_bano.tres" id="32_1ksj8"]
+[ext_resource type="ArrayMesh" uid="uid://ct5c4fv1fmh0q" path="res://assets/Models/Object/Repisa.tres" id="33_w2mh6"]
+[ext_resource type="ArrayMesh" uid="uid://ceqcghyokyq08" path="res://assets/Models/Object/Luxo.tres" id="34_fpihh"]
+[ext_resource type="PackedScene" uid="uid://bfm7q04grwvtj" path="res://nodos/casa.tscn" id="35_6espb"]
+[ext_resource type="PackedScene" uid="uid://sh4n1klhh3jt" path="res://assets/character/female_controller.tscn" id="35_8mmec"]
 
 [sub_resource type="Gradient" id="Gradient_jebea"]
 colors = PackedColorArray(0.0520006, 0.0215055, 0.0215064, 1, 1, 1, 1, 1)
@@ -88,7 +97,7 @@ offset_bottom = 1080.0
 environment = SubResource("Environment_tvnup")
 
 [node name="Player" parent="SubViewportContainer/SubViewport" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8057, -0.144402, 15.7669)
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 10.8057, -0.144402, 15.7669)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_7fgdi")
@@ -98,10 +107,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.35926, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.260404, 0)
-material_override = ExtResource("2_xsr1b")
+material_override = ExtResource("2_0c4wb")
 mesh = SubResource("BoxMesh_k0tqt")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Floor/MeshInstance3D"]
+physics_material_override = ExtResource("3_1wyp0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gjvfl")
@@ -237,7 +247,7 @@ transform = Transform3D(0.86586, 0, 0.500287, 0, 1, 0, -0.500287, 0, 0.86586, 10
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45689, -1.06629, 7.27315)
 
 [node name="Vela_grande2" parent="Luces" instance=ExtResource("6_a1gpg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50477, -1.17191, -8.72685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0992, -1.17191, -8.72685)
 
 [node name="Vela_grande3" parent="Luces" instance=ExtResource("6_a1gpg")]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 12.5048, -1.19989, -15.7269)
@@ -317,13 +327,61 @@ mesh = ExtResource("23_dn8yg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4811, -0.99995, 10.8875)
 mesh = ExtResource("24_7qa22")
 
-[node name="DoorInteract" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3728, -1.11966, 10.4692)
-mesh = ExtResource("25_h62dq")
+[node name="Cama" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3736, -1.11966, 11.6739)
+mesh = ExtResource("27_476ib")
 
-[node name="DoorBase" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9148, -1.11966, 9.58976)
-mesh = ExtResource("26_n4dtk")
+[node name="Tina" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.82887, -1.11966, 12.1149)
+mesh = ExtResource("28_ru0do")
+
+[node name="Lavado" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2642, -1.11966, 11.3735)
+mesh = ExtResource("29_dibme")
+
+[node name="BanoAlfombra" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8133, -0.920112, 12.5338)
+mesh = ExtResource("30_k2eaq")
+
+[node name="Cama2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21851, -1.11966, 11.4544)
+mesh = ExtResource("31_ertsk")
+
+[node name="EspejoBano" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.28544, 0.244274, 11.168)
+mesh = ExtResource("32_1ksj8")
+
+[node name="Repisa" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.95666, -1.17221, 10.0603)
+mesh = ExtResource("33_w2mh6")
+
+[node name="Luxo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0089, -0.271826, 10.0673)
+mesh = ExtResource("34_fpihh")
+
+[node name="CasaFloor1" parent="." instance=ExtResource("35_6espb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19443, -1.1066, -6.17052)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.0763156, -0.432849, 0.89823, -0.0496503, 0.901389, 0.430153, -0.995847, -0.0117699, -0.0902812, 12.8762, 1.09238, -11.1582)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 5.47294
+spot_angle = 18.8051
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.856718, 0.160602, -0.490145, 0, 0.950288, 0.311373, 0.515786, -0.266759, 0.814128, 6.72617, 1.76037, 0)
+light_energy = 0.3
+shadow_enabled = true
+
+[node name="Personaje_01" parent="." node_paths=PackedStringArray("chatBox", "target", "zona_1", "zona_2") instance=ExtResource("35_8mmec")]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 13.1717, -1.11966, 2.34467)
+chatBox = NodePath("../Chat_box")
+CualNpcSoy = "npc01"
+target = NodePath("../SubViewportContainer/SubViewport/Player")
+zona_1 = NodePath("../base_model/Marker3D")
+zona_2 = NodePath("../base_model/Marker3D2")
+Speed = 0.8
 
 [editable path="SubViewportContainer"]
 [editable path="Adornos/Puerta1"]
