@@ -78,6 +78,7 @@ theme_override_fonts/font = ExtResource("2_ap460")
 theme_override_font_sizes/font_size = 30
 text = "Aaaa
 "
+autowrap_mode = 3
 visible_characters = 0
 visible_ratio = 0.0
 

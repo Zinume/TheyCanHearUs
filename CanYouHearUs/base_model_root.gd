@@ -3,6 +3,8 @@ extends CharacterBody3D
 @export var chatBox : CanvasLayer
 @export var CualNpcSoy = "npc01"
 @export var deboMirarAlJugadorEnChat = false
+@export var mePuedenHablar = false
+@export var deboMoverme = false
 
 @export var target : CharacterBody3D
 
@@ -33,7 +35,7 @@ var posicionesZonas = {
 	"zona_10" : Vector3(0,0,0)
 }
 
-
+var delay: bool = true
 var estoyViendo: bool  = false
 var estoyEnRutina: bool  = false
 var jugadorChateaConmigo: bool = false
@@ -48,7 +50,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	coneccionConChatBox()
+	#coneccionConChatBox()
+	coneccionDelayConChatbox()
 	checkearZonasYAgregarPosicion()
 	Ik.start()
 
@@ -70,7 +73,7 @@ func gravedadYAnimacion(delta):
 	if not is_on_floor():
 		velocity.y -=gravity*delta
 	
-	if velocity.length() > 0:
+	if velocity.length() > 0 and deboMoverme:
 		velocity = velocity.normalized() * Speed
 		#walk
 		look_at(targ,Vector3.UP,true)
@@ -99,7 +102,7 @@ func updateTargetLocation(objetivo):
 
 
 func distanciaConObjetivoMoverse(delta):
-	if position.distance_to(targ)> 1 and !estoyViendo:
+	if position.distance_to(targ)> 1 and !estoyViendo and deboMoverme:
 		estoyEnRutina = false
 		var curLoc = global_transform.origin
 		var nextLoc = agent.get_next_path_position()
@@ -107,9 +110,9 @@ func distanciaConObjetivoMoverse(delta):
 		velocity = newVel
 		if not is_on_floor():
 			velocity.y -=gravity*delta
-	else: 
+	else:
 		velocity = Vector3(0,0,0)
-		if !estoyEnRutina :
+		if !estoyEnRutina and !estoyViendo:
 			$Rutina.start()
 			estoyEnRutina = true
 			
@@ -155,8 +158,10 @@ func obtener_siguiente_zona(zona_actual):
 
 func interaccion():
 	if deboMirarAlJugadorEnChat:
-		if Input.is_action_just_pressed("Clickear") and target.ConqueEstoyInteractuando == self and target.puedointeractuar and !Globals.ModoChat and !Globals.ModoOpciones:
-			Globals.ModoChat = true
+		if Input.is_action_just_pressed("Clickear") and target.ConqueEstoyInteractuando == self and target.puedointeractuar and !Globals.ModoChat and !Globals.ModoOpciones and mePuedenHablar and delay:
+			delay = false
+			print('volvi a clickear')
+			#Globals.ModoChat = true
 			chatBox.CualNPCSoy = CualNpcSoy
 			chatBox.CheckRutaHistoria(CualNpcSoy)
 			chatBox.ChatBox_activado()
@@ -166,9 +171,11 @@ func interaccion():
 			jugadorMeMira()
 			if !estoyViendo:
 				voltearAMirarAlJugador()
+			
 	else:
-		if Input.is_action_just_pressed("Clickear") and estoyViendo and target.ConqueEstoyInteractuando == self and target.puedointeractuar and !Globals.ModoChat and !Globals.ModoOpciones:
-			Globals.ModoChat = true
+		if Input.is_action_just_pressed("Clickear") and estoyViendo and target.ConqueEstoyInteractuando == self and target.puedointeractuar and !Globals.ModoChat and !Globals.ModoOpciones and mePuedenHablar and delay:
+			delay = false
+			#Globals.ModoChat = true
 			chatBox.CualNPCSoy = CualNpcSoy
 			chatBox.CheckRutaHistoria(CualNpcSoy)
 			chatBox.ChatBox_activado()
@@ -183,6 +190,7 @@ func footSteps():
 	footstep.play()
 
 func voltearAMirarAlJugador():
+	print('Me volteo a ti')
 	estoyViendo= true
 	var tween = create_tween()
 	# rotar usando look_at
@@ -211,8 +219,21 @@ func _on_rutina_timeout():
 func dejoDeMirar():
 	estoyViendo = false
 	
+func delayTimer():
+	$Timer_delay.start()
+	
+func coneccionDelayConChatbox():
+	chatBox.fin_de_dialogo.connect(delayTimer)
+
+	
 func coneccionConChatBox():
 	chatBox.fin_de_dialogo.connect(dejoDeMirar)
 	
+	
 func jugadorMeMira():
 	target.mirarNpc($base_model/Marker3D.global_position)
+
+
+func _on_timer_delay_timeout():
+	
+	delay = true

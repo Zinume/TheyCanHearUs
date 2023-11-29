@@ -47,6 +47,7 @@ var JugueUnPuzzleYQuieroSalir = false
 
 #portales
 var JugadorPosNuevaPortal = Vector3(0,0,0)
+var JugadorRotNuevaPortal = Vector3(0,0,0)
 var VengoDeUnPortal = false
 
 var npc_historias = {
@@ -72,7 +73,7 @@ var puzzles = {
 	"Puzzle10": false
 }
 var infoJugador = {
-	
+	"Linterna": false,
 	"posicion": Vector3(0,0,0),
 	"rotacion": Vector3(0,0,0),
 	"escenaACargar": "res://lvls/level_1.tscn",

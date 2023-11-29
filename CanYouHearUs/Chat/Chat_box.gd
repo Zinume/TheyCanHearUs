@@ -63,6 +63,11 @@ func _process(_delta):
 		#Acá estan los textos en donde se recompensa para avanza en la historia
 		if TextoPersonaje00 in NpcArrays.TextoRecompensa[CualNPCSoy]:
 			Globals.npc_historias[CualNPCSoy] += 1
+		#acá es para añadir historia a otros NPC
+		if TextoPersonaje00 in DialogosNpc.rutasParaOtrosNpc[CualNPCSoy]:
+			agregarHistoriaAOtrosNpc(DialogosNpc.rutasParaOtrosNpc[CualNPCSoy][TextoPersonaje00])
+		else:
+			pass
 			
 		### Añadir hora al dia
 		#if TextoPersonaje00 in NpcArrays.HoraDelDia[CualNPCSoy]:
@@ -70,6 +75,7 @@ func _process(_delta):
 			
 	#Finales de conversacion en las diferentes lineas de dialogo
 		if TextoPersonaje00 in NpcArrays.FinalesDialogos[CualNPCSoy]:
+			print('termine')
 			fin_de_dialogo.emit()
 			TextoPersonaje00 = 0
 			ChatBox_desactivado()
@@ -317,6 +323,7 @@ func CheckRutaHistoria(Npc: String):
 		TextoPersonaje00 = DialogosNpc.rutasNpc[Npc]["texto al que ir"+str(Globals.npc_historias[Npc])]
 		
 
+<<<<<<< Updated upstream
 #func CheckSprite():
 #	if Globals.ModoChat:
 #		NPC_sprites.get_node("AnimatedSprite1").show() 
@@ -329,6 +336,10 @@ func CheckRutaHistoria(Npc: String):
 #	NPC_sprites.get_node("AnimatedSprite1").animation = NombreNPC
 	
 	
+=======
+func agregarHistoriaAOtrosNpc(NpcAjeno:String):
+	Globals.npc_historias[NpcAjeno]+= 1
+>>>>>>> Stashed changes
 
 func TimerParaCambiarEstadoPreguntas():
 	SignalPregunta01 = false

@@ -126,3 +126,29 @@ PISTA_5,"Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maxim
 ,,
 NPC_1_LINE_1,David: My name is David and this is a test dialog,David:  Hola este es un dialogo de prueba y me llamo 
 NPC_1_LINE_2,This is the next line,Y esto es lo que sigue
+,,
+QUESTION_INTRO_1,"Todo estará bien, confiá en mi. Pronto llegaremos.","Todo estará bien, confiá en mi. Pronto llegaremos."
+,,
+,,
+INTRO_LINE_1,"Llevamos un tiempo caminando, creo que ya deberíamos estar cerca.","Llevamos un tiempo caminando, creo que ya deberíamos estar cerca."
+INTRO_LINE_2,"Me duele un poco los pies, y Anna ya debe estar agotada, no a dicho una palabra desde que llegamos.","Me duele un poco los pies, y Anna ya debe estar agotada, no a dicho una palabra desde que llegamos."
+INTRO_LINE_3,"Anna: Este lugar me da mala espina, parece que estamos lejos de todo el mundo.","Anna: Este lugar me da mala espina, parece que estamos lejos de todo el mundo."
+INTRO_LINE_4,Anna: Crees que nos pase algo en un lugar como este?,Anna: Crees que nos pase algo en un lugar como este?
+INTRO_LINE_5,"Anna: Sigamos adelante, entonces. Confío en ti, amiga","Anna: Sigamos adelante, entonces. Confío en ti, amiga"
+,,
+,,
+NPC_2_LINE_1,Anna: ...,Anna: …
+NPC_2_LINE_2,"Anna: … Gracias por todo lo que haces por mi, estar juntas es lo mejor en estos días.","Anna: … Gracias por todo lo que haces por mi, estar juntas es lo mejor en estos días."
+NPC_2_LINE_3,Anna: En casa nadie me habla y … no dejo de extrañarlo…,Anna: En casa nadie me habla y … no dejo de extrañarlo…
+NPC_2_LINE_4,"Anna: Si… deberíamos seguir, ya debemos estar cerca.","Anna: Si… deberíamos seguir, ya debemos estar cerca."
+NPC_2_LINE_5,Anna: Tal vez… deberíamos apresurarnos,Anna: Tal vez… deberíamos apresurarnos
+NPC_2_LINE_6,Anna: No me gustaría quedar a oscuras en este lugar,Anna: No me gustaría quedar a oscuras en este lugar
+,,
+,,
+NPC_3_LINE_1,Desconocido: Dos chicas caminando solas por estos lados es muy peligroso.,Desconocido: Dos chicas caminando solas por estos lados es muy peligroso.
+NPC_3_LINE_2,"Desconocido: Pronto se hará de noche, y después de lo que paso este semana…","Desconocido: Pronto se hará de noche, y después de lo que paso este semana…"
+NPC_3_LINE_3,Desconocido: No se enteraron… Se escapo un asesino serial de la cárcel local.,Desconocido: No se enteraron… Se escapo un asesino serial de la carcel local.
+NPC_3_LINE_4,Desconocido: Lo tenian capturado y esperando transferirlo… Y todo termino mal.,Desconocido: Lo tenian capturado y esperando transferirlo… Y todo termino mal.
+NPC_3_LINE_5,"Desconocido: En este bosque cosas extrañas siempre ocurren, si son valientes tal vez puedan encontrar misterios… O un asesino suelto jajajaj.","Desconocido: En este bosque cosas extrañas siempre ocurren, si son valientes tal vez puedan encontrar misterios… O un asesino suelto jajajaj."
+NPC_3_LINE_6,Desconocido: Perdon por mi humor… JAJA. Tal vez deba irme.,Desconocido: Perdon por mi humor… JAJA. Tal vez deba irme.
+NPC_3_LINE_7,Desconocido: Hasta pronto… ,Desconocido: Hasta pronto… 

@@ -87,8 +87,8 @@ func variablesAResetear():
 		"Puzzle10": false
 	}
 	Globals.infoJugador = {
-		"posicion": Vector3(0,0,0),
-		"rotacion": Vector3(0,0,0),
+		"Linterna": false,
+		"posicion": Transform3D(),
 		"escenaACargar": "res://lvls/level_1.tscn",
 		"inventario":{
 			"item1": false,

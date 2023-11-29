@@ -24,7 +24,7 @@ func _ready():
 
 
 func _physics_process(_delta):
-	sonido()
+	
 	
 	if Input.is_action_just_pressed("ui_option") and !Globals.ModoChat:
 		if Globals.ModoOpciones and !Globals.PickiUnTexto:

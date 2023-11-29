@@ -9,6 +9,10 @@
 [ext_resource type="Script" path="res://addons/character-controller/abilities/swim_ability_3d.gd" id="12_3irqv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fn1rj"]
+<<<<<<< Updated upstream
+=======
+radius = 0.164223
+>>>>>>> Stashed changes
 
 [node name="CharacterController3D" type="CharacterBody3D"]
 floor_snap_length = 0.5
