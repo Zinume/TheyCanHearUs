@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://mwx7pjrq25um"]
+[gd_scene load_steps=7 format=3 uid="uid://mwx7pjrq25um"]
 
 [ext_resource type="Script" path="res://UI/UI_Opciones.gd" id="2"]
 [ext_resource type="FontFile" uid="uid://c1mtdl75tm6yo" path="res://Fuente/BestTen-DOT.otf" id="2_kuhs6"]
@@ -9,10 +9,15 @@
 default_font = ExtResource("2_kuhs6")
 default_font_size = 30
 
-[node name="UI_Opciones" type="CanvasLayer" node_paths=PackedStringArray("Fullscreen", "Idioma", "Save", "Back", "Exit", "Brightness", "Mouse_Sen", "GeneralVSlider", "MusicVSlider", "VoiceVSlider", "SfxSlider")]
+[sub_resource type="Theme" id="Theme_yghhs"]
+default_font = ExtResource("2_kuhs6")
+default_font_size = 30
+
+[node name="UI_Opciones" type="CanvasLayer" node_paths=PackedStringArray("Fullscreen", "Idioma", "option_mics", "Save", "Back", "Exit", "Brightness", "Mouse_Sen", "GeneralVSlider", "MusicVSlider", "VoiceVSlider", "SfxSlider", "MicSen")]
 script = ExtResource("2")
 Fullscreen = NodePath("VBoxContainer/Fullscreen")
 Idioma = NodePath("VBoxContainer/Idioma")
+option_mics = NodePath("VBoxContainer2/MicConfig/MicOption")
 Save = NodePath("VBoxContainer/Save")
 Back = NodePath("VBoxContainer/Back")
 Exit = NodePath("VBoxContainer/Exit")
@@ -22,6 +27,7 @@ GeneralVSlider = NodePath("VBoxContainer2/GeneralVolumen/GeneralVSlider")
 MusicVSlider = NodePath("VBoxContainer2/MusicVolumen/MusicSlider")
 VoiceVSlider = NodePath("VBoxContainer2/VoiceVolumen/VoiceSlider")
 SfxSlider = NodePath("VBoxContainer2/SFXVolumen/SFXSlider")
+MicSen = NodePath("VBoxContainer2/MicConfig/HSlider")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 5.0
@@ -156,6 +162,36 @@ focus_neighbor_left = NodePath("../../../VBoxContainer/Fullscreen")
 focus_neighbor_right = NodePath("../../../VBoxContainer/Fullscreen")
 max_value = 24.0
 
+[node name="MicConfig" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="VBoxContainer2/MicConfig"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "Mic Options"
+
+[node name="MicOption" type="OptionButton" parent="VBoxContainer2/MicConfig"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_yghhs")
+theme_override_fonts/font = ExtResource("2_kuhs6")
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer2/MicConfig"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_kuhs6")
+theme_override_font_sizes/font_size = 30
+text = "Mic Sensitivity"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer2/MicConfig"]
+layout_mode = 2
+size_flags_vertical = 2
+
 [node name="GeneralVolumen" type="VBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -254,6 +290,8 @@ stream = ExtResource("4_j63ap")
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="value_changed" from="VBoxContainer2/Brightness/Brightness" to="." method="_on_brightness_value_changed"]
 [connection signal="value_changed" from="VBoxContainer2/MouseSensitivity/MouseSensitivity" to="." method="_on_mouse_sensitivity_value_changed"]
+[connection signal="item_selected" from="VBoxContainer2/MicConfig/MicOption" to="." method="_on_mic_option_item_selected"]
+[connection signal="value_changed" from="VBoxContainer2/MicConfig/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer2/GeneralVolumen/GeneralVSlider" to="." method="_on_GeneralVSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer2/MusicVolumen/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer2/VoiceVolumen/VoiceSlider" to="." method="_on_VoiceSlider_value_changed"]

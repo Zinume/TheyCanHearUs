@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cb51jl5cqeodi"]
+
+[ext_resource type="Texture2D" uid="uid://dpk14vfhsusa1" path="res://assets/Models/textures/Techo_BaseColor.png" id="1_qldus"]
+[ext_resource type="Texture2D" uid="uid://tpk88maajmdr" path="res://assets/Models/textures/Techo_OcclusionRoughnessMetallic.png" id="2_ic553"]
+[ext_resource type="Texture2D" uid="uid://co4rhybb5wy7c" path="res://assets/Models/textures/Techo_Normal.png" id="3_f7rj6"]
+
+[resource]
+albedo_texture = ExtResource("1_qldus")
+metallic = 1.0
+metallic_specular = 0.29
+metallic_texture = ExtResource("2_ic553")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_ic553")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_f7rj6")
+ao_enabled = true
+ao_texture = ExtResource("2_ic553")

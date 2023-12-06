@@ -6,6 +6,7 @@ extends Node3D
 @export var soyPortal = false
 @export var Mapa = "res://lvls/level_1.tscn"
 @export var PosicionEnNuevoMapa = Vector3(0,0,0)
+@export var RotacionEnNuevoMapa = Vector3(0,0,0)
 
 var puertaAbierta = false
 var jugadorDentro = false
@@ -13,6 +14,9 @@ var entroPorFrente = false
 var entroPorEspalda = false
 
 var MaterialOutline : Shader = load("res://shader/Outline.gdshader")
+
+signal puerta_abriendo
+signal puerta_cerrando
 
 
 
@@ -25,6 +29,7 @@ func _ready():
 func _process(_delta):
 	checkearLadoColision()
 	RayoChocaConmigo()
+	
 	if NecesitoLlave:
 		siSoyPortal()
 		if Input.is_action_just_pressed("Clickear") and entroPorFrente and Globals.infoJugador["inventario"][LlaveNecesaria] == true and !soyPortal:
@@ -49,14 +54,15 @@ func _process(_delta):
 			$ColorRect.show()
 			$ColorRect.modulate.a = 1
 	else:
-		if Input.is_action_just_pressed("Clickear") and entroPorFrente:
+		siSoyPortalYNoNecesitoLLave()
+		if Input.is_action_just_pressed("Clickear") and entroPorFrente and !soyPortal:
 			if !puertaAbierta:
 				$Open.play()
 			animacionFrente()
 			desvanecerAlerta()
 			puertaAbierta = true
 			
-		if Input.is_action_just_pressed("Clickear") and entroPorEspalda:
+		if Input.is_action_just_pressed("Clickear") and entroPorEspalda and !soyPortal:
 			if !puertaAbierta:
 				$Open.play()
 			animacionEspalda()
@@ -91,14 +97,17 @@ func checkearLadoColision():
 		entroPorEspalda = false
 
 func animacionFrente():
+	puerta_abriendo.emit()
 	var tween = create_tween()
 	tween.tween_property($pivote,"rotation_degrees:y",90,1).set_trans(Tween.TRANS_SINE)
 	
 func animacionEspalda():
+	puerta_abriendo.emit()
 	var tween = create_tween()
 	tween.tween_property($pivote,"rotation_degrees:y",-90,1).set_trans(Tween.TRANS_SINE)
 	
 func animacionVolverANormal():
+	puerta_cerrando.emit()
 	$Closed.play()
 	puertaAbierta = false
 	var tween = create_tween()
@@ -117,12 +126,32 @@ func RayoChocaConmigo():
 		$pivote/StaticBody3D/CollisionShape3D/MeshInstance3D.material_override.next_pass=ShaderMaterial.new()
 		
 func siSoyPortal():
-	if Input.is_action_just_pressed("ui_accion") and entroPorFrente and Globals.infoJugador["inventario"][LlaveNecesaria] == true and soyPortal:
+	if Input.is_action_just_pressed("Clickear") and entroPorFrente and Globals.infoJugador["inventario"][LlaveNecesaria] == true and soyPortal:
+		$Fadeout.play("fadeout")
+		animacionFrente()
+		Globals.JugadorPosNuevaPortal = PosicionEnNuevoMapa
+		Globals.JugadorRotNuevaPortal = RotacionEnNuevoMapa
+		Globals.VengoDeUnPortal = true
+	elif Input.is_action_just_pressed("Clickear") and entroPorEspalda and Globals.infoJugador["inventario"][LlaveNecesaria] == true and soyPortal:
+		$Fadeout.play("fadeout")
+		animacionEspalda()
+		Globals.JugadorPosNuevaPortal = PosicionEnNuevoMapa
+		Globals.JugadorRotNuevaPortal = RotacionEnNuevoMapa
+		Globals.VengoDeUnPortal = true
+	
+func siSoyPortalYNoNecesitoLLave():
+	if Input.is_action_just_pressed("Clickear") and entroPorFrente and soyPortal:
+		animacionFrente()
 		$Fadeout.play("fadeout")
 		Globals.JugadorPosNuevaPortal = PosicionEnNuevoMapa
+		Globals.JugadorRotNuevaPortal = RotacionEnNuevoMapa
 		Globals.VengoDeUnPortal = true
-		
-
+	elif Input.is_action_just_pressed("Clickear") and entroPorEspalda and soyPortal:
+		animacionEspalda()
+		$Fadeout.play("fadeout")
+		Globals.JugadorPosNuevaPortal = PosicionEnNuevoMapa
+		Globals.JugadorRotNuevaPortal = RotacionEnNuevoMapa
+		Globals.VengoDeUnPortal = true
 
 func _on_fadeout_animation_finished(_anim_name):
 	get_tree().change_scene_to_file(Mapa)

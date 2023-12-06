@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ctl5rbv1pgbqr" path="res://assets/Models/textures/M_puertas_sillas_InteriorChairDoor_Normal.png" id="3_clcrt"]
 
 [resource]
+resource_local_to_scene = true
 resource_name = "InteriorChairDoor"
 cull_mode = 2
 albedo_texture = ExtResource("1_uy263")

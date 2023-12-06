@@ -33,14 +33,18 @@ class_name Player
 @onready var Colisionador = $Collision
 var puedointeractuar = false
 @onready var ConqueEstoyInteractuando = $Head/Camera/RayCast3D.get_collider()
+@onready var InteractuandoConElEnemigo = $Head/Camera/ColisionConEnemigo
 var actual_rotation := Vector3()
 var BlurCamera = 10
 var ModoBlur = false
+@export var LinternaEncendida = false
+
+
 
 
 func _ready():
 	#mis funciones
-	mouse_sensitivity = Globals.opcionesParametros["Mouse_sen"]
+	setMouseYLinterna()
 	guardarNombreDeNivel()
 	cargarPosJugador()
 	#valor linterna
@@ -53,16 +57,15 @@ func _ready():
 	submerged.connect(_on_controller_subemerged.bind())
 
 func _process(delta):
+	checkLinterna()
 	BlureoCamara()
 	guardarPosJugador()
 	zoom()
 	colorPuntero()
 	
-	
-	
 
-
-func _physics_process(delta):	
+func _physics_process(delta):
+	linterna()
 	
 	if Globals.ModoPlay == true and !Globals.ModoOpciones and !Globals.ModoInventario and !Globals.ModoChat:
 		var is_valid_input := Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
@@ -102,15 +105,15 @@ func _on_controller_subemerged():
 func guardarPosJugador():
 	if Globals.infoJugador["posicion"] != global_position:
 		Globals.infoJugador["posicion"] = global_position 
-	if Globals.infoJugador["rotacion"] != global_rotation:
-		Globals.infoJugador["rotacion"] = global_rotation
+	if Globals.infoJugador["rotacion"] != rotation:
+		Globals.infoJugador["rotacion"] = rotation
 		
 		
 func cargarPosJugador():
 	if Globals.infoJugador["posicion"] !=Vector3(0,0,0):
 		if Globals.AcaboDeCargar == true:
 			global_position = Globals.infoJugador["posicion"]
-			global_rotation = Globals.infoJugador["rotacion"] 
+			rotation = Globals.infoJugador["rotacion"] 
 			Globals.AcaboDeCargar = false
 			
 	if Globals.JugueUnPuzzleYQuieroSalir == true:
@@ -119,6 +122,7 @@ func cargarPosJugador():
 		
 	if Globals.VengoDeUnPortal == true:
 		global_position = Globals.JugadorPosNuevaPortal
+		rotation = Globals.JugadorRotNuevaPortal
 		Globals.VengoDeUnPortal = false
 		
 func BlureoCamara():
@@ -149,3 +153,27 @@ func mirarNpc(pos:Vector3):
 	var tween = create_tween()
 	tween.tween_property(camara,"rotation",rot_queQuiero,1)
 	tween.parallel().tween_property(camara,"fov",40,1)
+
+func linterna():
+	if Input.is_action_just_pressed("Linterna") and !Globals.ModoOpciones and !Globals.ModoInventario and !Globals.ModoChat and !LinternaEncendida:
+		LinternaEncendida = true
+		$Linterna.play()
+	elif Input.is_action_just_pressed("Linterna") and !Globals.ModoOpciones and !Globals.ModoInventario and !Globals.ModoChat and LinternaEncendida:
+		LinternaEncendida = false
+		$Linterna.play()
+
+func checkLinterna():
+	Globals.infoJugador["Linterna"] = LinternaEncendida
+	if LinternaEncendida:
+		$Head/Camera/SpotLight3D.light_energy = LuzLinterna
+	elif !LinternaEncendida:
+		$Head/Camera/SpotLight3D.light_energy = 0
+		
+
+func setMouseYLinterna():
+	LinternaEncendida = Globals.infoJugador["Linterna"]
+	mouse_sensitivity = Globals.opcionesParametros["Mouse_sen"]
+
+func shakeCamera():
+	camara.h_offset = randf_range(0,0.5)
+	camara.v_offset = randf_range(0,0.5)

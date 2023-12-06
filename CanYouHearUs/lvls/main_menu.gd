@@ -1,18 +1,18 @@
 extends Node3D
 
 var BorrarPartida = false
-var NivelInicial = "res://lvls/level_1.tscn"
+var NivelInicial = "res://lvls/level_intro.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print('aca')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(_delta):
 	visibilidadBorrarPartida()
-	visibilidadMouse()
+	
 	
 func _on_button_pressed():
 	if FileAccess.file_exists("user://save_game.dat"): 
@@ -49,7 +49,7 @@ func _on_no_pressed():
 
 
 func visibilidadBorrarPartida():
-	if BorrarPartida == true:
+	if BorrarPartida:
 		$BorrarPartida.show()
 	else:
 		$BorrarPartida.hide()
@@ -65,11 +65,13 @@ func visibilidadMouse():
 
 func variablesAResetear():
 	Globals.opcionesParametros = {
-	"Idioma":Globals.opcionesParametros["Idioma"],
-	"VolumenGral":0,
-	"VolumenVoice":0,
-	"VolumenMusic":0,
-	"VolumenSFX":0,
+	"MicSen":10,
+	"ValorMic":0,
+	"Idioma":0,
+	"VolumenGral":-3,
+	"VolumenVoice":-3,
+	"VolumenMusic":-3,
+	"VolumenSFX":-3,
 	"Mouse_sen":2,
 	"Brightness":1,
 	}
@@ -87,6 +89,7 @@ func variablesAResetear():
 		"Puzzle10": false
 	}
 	Globals.infoJugador = {
+		"Linterna": false,
 		"posicion": Vector3(0,0,0),
 		"rotacion": Vector3(0,0,0),
 		"escenaACargar": "res://lvls/level_1.tscn",
@@ -103,3 +106,7 @@ func variablesAResetear():
 			"diario5": false,
 		}
 	}
+
+
+func _on_ui_opciones_sali_de_opciones():
+	visibilidadMouse()

@@ -23,7 +23,7 @@ const Preguntas02= {
 const Preguntas03= {
 	"npc01":[7],
 	"npc02":[],
-	"npc03":[],
+	"npc03":[1],
 } 
 #Esta constante es para saber donde estará las preguntas con 4 numero
 const Preguntas04= {
@@ -39,16 +39,25 @@ const Preguntas04= {
 const setearTextoPregunta01 ={
 	"npc01":{
 		7:"QUESTION_1"
+	},
+	"npc03":{
+		1:"QUESTION_1"
 	}
 }
 const setearTextoPregunta02 ={
 	"npc01":{
 		7:"QUESTION_2"
+	},
+	"npc03":{
+		1:"QUESTION_2"
 	}
 }
 const setearTextoPregunta03 ={
 	"npc01":{
 		7:"QUESTION_3"
+	},
+	"npc03":{
+		1:"QUESTION_3"
 	}
 }
 const setearTextoPregunta04 ={
@@ -60,13 +69,13 @@ const setearTextoPregunta04 ={
 var VolverAlMenuPreguntas= {
 	"npc01":[4,9,10],
 	"npc02":[],
-	"npc03":[],
+	"npc03":[3,5],
 } 
 #Textos donde termina el dialogo
 var FinalesDialogos= {
 	"npc01":[],
-	"npc02":[],
-	"npc03":[],
+	"npc02":[3,5],
+	"npc03":[6],
 } 
 
 #Esta constante es para cambiar la hora del dia de cada NPC.
@@ -78,7 +87,7 @@ const HoraDelDia= {
 
 const AgregarTexto= {
 	"npc01":[],
-	"npc02":[3],
+	"npc02":[],
 	"npc03":[],
 } 
 
@@ -111,5 +120,15 @@ var VolverMenu = {
 		"Dialogo_Actual": 11,
 		"Menu_al_que_ir": 7,
 		}
+		],
+	"npc03":[
+		{
+		"Dialogo_Actual": 3,
+		"Menu_al_que_ir": 1,
+		},
+		{
+		"Dialogo_Actual": 5,
+		"Menu_al_que_ir": 1,
+		},
 		]
 }

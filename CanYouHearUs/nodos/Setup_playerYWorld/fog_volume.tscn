@@ -3,12 +3,12 @@
 [ext_resource type="Shader" path="res://shader/fog.gdshader" id="1_klebs"]
 
 [sub_resource type="Gradient" id="Gradient_7cjvs"]
-colors = PackedColorArray(0.2065, 0.275858, 0.35, 1, 0.337449, 0.44976, 0.478703, 1)
+colors = PackedColorArray(0.471119, 0.131873, 0.127745, 1, 0.635184, 0.322034, 0.299785, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_106hh"]
 gradient = SubResource("Gradient_7cjvs")
-fill_from = Vector2(0.346154, 0)
-fill_to = Vector2(0.863248, 0.00854701)
+fill_from = Vector2(0.145299, 0.119658)
+fill_to = Vector2(0.837607, 0.324786)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_cry13"]
 
@@ -16,6 +16,7 @@ fill_to = Vector2(0.863248, 0.00854701)
 noise = SubResource("FastNoiseLite_cry13")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4dvdi"]
+resource_local_to_scene = true
 shader = ExtResource("1_klebs")
 shader_parameter/noise_scale = 0.257
 shader_parameter/flatness = 7.165

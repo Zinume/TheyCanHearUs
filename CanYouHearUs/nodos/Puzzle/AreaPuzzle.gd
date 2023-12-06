@@ -5,6 +5,9 @@ var PosMouse = Vector3(0,0,0)
 var ObjetoEnMiMano = ""
 @export var puzzle_ganador = "01"
 @export var victoria= ""
+@export var JugadorSeQuedaQuieto = false
+signal victoriaPuzzle1
+
 
 var objetos_en_zonas = {
 	"01": {"position": Vector3(0, 0, 0), "valor": null},
@@ -27,12 +30,12 @@ var objetos_en_zonas = {
 
 
 func _ready():
-	Globals.ModoPlay = false
+	if JugadorSeQuedaQuieto:
+		Globals.ModoPlay = false
 	SiHayAreasValidadasSeAgregaSuPosicion()
 
 
-@warning_ignore("unused_parameter")
-func _process(delta):
+func _process(_delta):
 	pass
 	
 	
@@ -82,6 +85,8 @@ func verificarVictoria():
 		# Si coinciden, se busca el puzzle ganador y se vuelve true dentro del jugador
 		var puzzle_key = "Puzzle" + puzzle_ganador
 		if puzzle_key in Globals.puzzles:
+			victoriaPuzzle1.emit()
+			$Ganaste.play()
 			Globals.puzzles[puzzle_key] = true
 			print("¡Has ganado!")
 			print(Globals.puzzles[puzzle_key])

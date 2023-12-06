@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dk1r013uigbak"]
+
+[ext_resource type="Texture2D" uid="uid://c4bnbah62fw3k" path="res://assets/Models/textures/Cortina_BaseColor.png" id="1_sqfnj"]
+[ext_resource type="Texture2D" uid="uid://dvspiamyn2n4x" path="res://assets/Models/textures/Cortina_Normal.png" id="2_yk7w5"]
+
+[resource]
+albedo_texture = ExtResource("1_sqfnj")
+normal_enabled = true
+normal_texture = ExtResource("2_yk7w5")

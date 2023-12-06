@@ -32,9 +32,10 @@ func _input(event):
 		Globals.PickPuzzle = true
 		
 	if Input.is_action_just_released("Clickear") and !Globals.ModoOpciones:
+		if Globals.puzzles["Puzzle" + MiPapa.puzzle_ganador] == false:
+			MiPapa.verificarVictoria()
 		NoPickieNada = false
 		Globals.PickPuzzle = false
-		MiPapa.verificarVictoria()
 		var tween = create_tween()
 		tween.tween_property(self,"scale",Vector3(1,1,1),0.15).set_trans(Tween.TRANS_SINE)
 		

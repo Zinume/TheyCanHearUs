@@ -1,5 +1,7 @@
 extends Node3D
 
+signal victoriaPuzzle4
+
 @export var puzzle_ganador = "01"
 
 @export var combinacion_secreta = {
@@ -34,8 +36,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#print(nueva_combinacion)
+	#print(combinacion_secreta)
 	pass
 
 
@@ -51,14 +54,18 @@ func verificarCombinacion():
 	for pieza in combinacion_secreta.keys():
 		if pieza in nueva_combinacion and combinacion_secreta[pieza] == nueva_combinacion[pieza]:
 			aciertos += 1
+			print(aciertos)
 		else:
-			break  # Si encuentra una discrepancia, sale del bucle
+			aciertos += 0
+			#break  # Si encuentra una discrepancia, sale del bucle
 				
 	if aciertos == CantidadBotonesCombinacionSecreta:
 		print("¡Combinación correcta!")
 		var puzzle_key = "Puzzle" + puzzle_ganador
 		if puzzle_key in Globals.puzzles:
 			Globals.puzzles[puzzle_key] = true
+			victoriaPuzzle4.emit()
+			$Ganaste.play()
 			print("¡Has ganado!")
 			print("puzzle"+puzzle_ganador+" "+str(Globals.puzzles[puzzle_key]))
 		else:

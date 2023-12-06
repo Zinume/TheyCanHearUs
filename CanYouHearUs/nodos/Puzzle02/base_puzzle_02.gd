@@ -1,6 +1,9 @@
 extends Node3D
 
+signal victoriaPuzzle2
+
 @export var puzzle_ganador = "01"
+@export var JugadorSeQuedaQuieto = false
 
 # Define la combinación secreta de botones
 @export var combinacion_secreta = {
@@ -43,7 +46,8 @@ var nuevobotones ={}
 
 
 func _ready():
-	Globals.ModoPlay = false
+	if JugadorSeQuedaQuieto:
+		Globals.ModoPlay = false
 	DisminuirListaDeBotonesEnElDiccionario()
 	
 
@@ -66,6 +70,8 @@ func verificarCombinacion():
 		# Si coinciden, se busca el puzzle ganador y se vuelve true dentro del jugador
 		var puzzle_key = "Puzzle" + puzzle_ganador
 		if puzzle_key in Globals.puzzles:
+			$Ganaste.play()
+			victoriaPuzzle2.emit()
 			Globals.puzzles[puzzle_key] = true
 			print("¡Has ganado!")
 			print("puzzle"+puzzle_ganador+" "+str(Globals.puzzles[puzzle_key]))

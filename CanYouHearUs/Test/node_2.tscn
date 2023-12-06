@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dd3rebokyflgc" path="res://assets/Models/textures/dungeon_texture.png" id="9_5ihee"]
 [ext_resource type="Material" uid="uid://rwde5yhqc2ws" path="res://assets/Models/textures/Master_material.tres" id="9_gr3rk"]
 [ext_resource type="PackedScene" uid="uid://plfps25uax8v" path="res://nodos/pick_item.tscn" id="9_oflrt"]
-[ext_resource type="ArrayMesh" uid="uid://d3m3ymlgkhc20" path="res://assets/Models/Object/box_small.tres" id="9_tmovg"]
+[ext_resource type="ArrayMesh" uid="uid://d0nk6m81vwok4" path="res://assets/Models/Object/crate_large.tres" id="9_tmovg"]
 [ext_resource type="Shader" path="res://shader/water.gdshader" id="10_61c15"]
 [ext_resource type="PackedScene" uid="uid://bnoh7q3cl3qv2" path="res://nodos/puzzle.tscn" id="10_bc5r1"]
 [ext_resource type="PhysicsMaterial" uid="uid://bklf2cx3fydt3" path="res://addons/character-controller/example/main/physics/stone.tres" id="11_m0qpm"]
@@ -230,7 +230,7 @@ transform = Transform3D(2.12536, 0, 0, 0, 0.462287, 0, 0, 0, 2.81413, 2.70678, -
 transform = Transform3D(0.578306, 0, 0, 0, 0.361601, 0, 0, 0, 0.5347, -8.02668, -0.71216, 5.01638)
 
 [node name="FogVolume" parent="." instance=ExtResource("6_3ss2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11336, 0.153843, -1.55227)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.736336, 0.153843, -1.55227)
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.329494, 0, 1.44574, 0, 4.65754, 0, -4.14958, 0, 0.114798, 6.44355, 0, 3.60293)

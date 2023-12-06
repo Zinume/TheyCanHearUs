@@ -44,3 +44,4 @@ attenuation_filter_db = -65.4
 
 [node name="Detect Ground" type="RayCast3D" parent="."]
 target_position = Vector3(0, -1.5, 0)
+collision_mask = 4
