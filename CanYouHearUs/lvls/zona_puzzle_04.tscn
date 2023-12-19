@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctw16ov6acioh"]
+[gd_scene load_steps=13 format=3 uid="uid://ctw16ov6acioh"]
 
 [ext_resource type="PackedScene" uid="uid://cm32b1o1ir24r" path="res://nodos/Setup_playerYWorld/sub_viewport_container.tscn" id="1_o2eh1"]
 [ext_resource type="Material" uid="uid://2ciy11rdndma" path="res://addons/character-controller/example/main/materials/grass.tres" id="2_qsr4n"]
 [ext_resource type="PhysicsMaterial" path="res://addons/character-controller/example/main/physics/grass.tres" id="3_cobvq"]
 [ext_resource type="PackedScene" uid="uid://nlyq0blla1cs" path="res://nodos/Puzzle04/base_puzzle_04.tscn" id="4_pywk3"]
+[ext_resource type="PackedScene" uid="uid://b7dwtyw0wwbkc" path="res://nodos/Puzzle04/area_puzzle_04.tscn" id="5_3bupr"]
 [ext_resource type="PackedScene" uid="uid://mwx7pjrq25um" path="res://UI/UI_Opciones.tscn" id="5_yv4du"]
 [ext_resource type="PackedScene" uid="uid://cio5lqg6aoijh" path="res://nodos/salir_puzzle.tscn" id="6_6a408"]
 
@@ -65,16 +66,16 @@ shape = SubResource("ConcavePolygonShape3D_h5muj")
 [node name="BasePuzzle_04_01" parent="." instance=ExtResource("4_pywk3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53417, -0.281136)
 combinacion_secreta = {
-"pieza1": 2,
-"pieza2": 3,
-"pieza3": 4,
-"pieza4": 1,
+"pieza1": 3,
+"pieza2": 2,
+"pieza3": 3,
+"pieza4": 2,
 "pieza5": 1,
 "pieza6": 1,
 "pieza7": 1,
 "pieza8": 1
 }
-CantidadBotonesCombinacionSecreta = 3
+CantidadBotonesCombinacionSecreta = 4
 
 [node name="AreaPuzzle04_01" parent="BasePuzzle_04_01" index="1" node_paths=PackedStringArray("Jugador")]
 Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
@@ -83,6 +84,12 @@ Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
 Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
 
 [node name="AreaPuzzle04_03" parent="BasePuzzle_04_01" index="3" node_paths=PackedStringArray("Jugador")]
+Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
+
+[node name="AreaPuzzle04_04" parent="BasePuzzle_04_01" node_paths=PackedStringArray("MiPapa", "Jugador") instance=ExtResource("5_3bupr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52734, 0.748537, 0)
+pieza = "pieza4"
+MiPapa = NodePath("..")
 Jugador = NodePath("../../SubViewportContainer/SubViewport/Player")
 
 [node name="UI_Opciones" parent="." instance=ExtResource("5_yv4du")]

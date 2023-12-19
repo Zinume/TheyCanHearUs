@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfnthevw6vdxq"]
+[gd_scene load_steps=10 format=3 uid="uid://dfnthevw6vdxq"]
 
 [ext_resource type="Script" path="res://lvls/main_menu.gd" id="1_gyidh"]
 [ext_resource type="Shader" path="res://shader/Ps1.gdshader" id="1_pvrrs"]
@@ -42,10 +42,6 @@ volumetric_fog_enabled = true
 adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture2D_igwbp")
 
-[sub_resource type="BoxMesh" id="BoxMesh_ow3do"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_hlt58"]
-
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_gyidh")
 
@@ -69,18 +65,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0906, 3.62767)
 current = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(10.1291, 0, 0, 0, 1, 0, 0, 0, 3.78064, 0, 0, 0)
-mesh = SubResource("BoxMesh_ow3do")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(0.184221, 0, 0.0917809, 0, 1, 0, -0.0465023, 0, 0.363595, 0, 1.20628, 0)
-mesh = SubResource("PrismMesh_hlt58")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.847456, -0.144527, -0.510814, 0.514575, 0.460183, 0.723494, 0.130504, -0.875982, 0.464355, -2.404, 2.78516, 1.29657)
-light_color = Color(0.811765, 0.541176, 0, 1)
-light_energy = 8.869
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 4
@@ -208,5 +193,6 @@ visible = false
 [connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="BorrarPartida/HBoxContainer/Si" to="." method="_on_si_pressed"]
 [connection signal="pressed" from="BorrarPartida/HBoxContainer/No" to="." method="_on_no_pressed"]
+[connection signal="saliDeOpciones" from="UI_Opciones" to="." method="_on_ui_opciones_sali_de_opciones"]
 
 [editable path="UI_Opciones"]

@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var jugador : CharacterBody3D
 @export var Fullscreen : Button
 @export var Idioma : OptionButton
+@export var option_mics : OptionButton
 @export var Save : Button
 @export var Back : Button
 @export var Exit : Button
@@ -13,9 +14,13 @@ extends CanvasLayer
 @export var MusicVSlider : HSlider
 @export var VoiceVSlider : HSlider
 @export var SfxSlider : HSlider
+@export var MicSen: HSlider
+
+signal saliDeOpciones
 
 
 func _ready():
+	crearListadeMicrofonos()
 	$VBoxContainer/Idioma.select(Globals.opcionesParametros["Idioma"])
 	_on_idioma_item_selected(Globals.opcionesParametros["Idioma"])
 	coneccionSonido()
@@ -24,13 +29,14 @@ func _ready():
 
 
 func _physics_process(_delta):
-	sonido()
+	
 	
 	if Input.is_action_just_pressed("ui_option") and !Globals.ModoChat:
 		if Globals.ModoOpciones and !Globals.PickiUnTexto:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Globals.ModoOpciones = false
 			Modo_opcion_check()
+			saliDeOpciones.emit()
 		elif Globals.ModoOpciones and Globals.PickiUnTexto:
 			Globals.ModoOpciones = false
 			Modo_opcion_check()
@@ -42,6 +48,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("ui_inventario") and Globals.ModoOpciones:
 		Globals.ModoOpciones = false
 		Modo_opcion_check()
+		saliDeOpciones.emit()
 
 
 func Modo_opcion_check():
@@ -137,6 +144,8 @@ func _on_mouse_sensitivity_value_changed(value):
 
 
 func checkSonidos():
+	MicSen.value = Globals.opcionesParametros["MicSen"]
+	
 	if jugador != null:
 		jugador.mouse_sensitivity = Globals.opcionesParametros["Mouse_sen"]
 		jugador.mouseSen()
@@ -193,6 +202,12 @@ func sonidoClick():
 
 func idioma():
 	Fullscreen.text = tr("Fullscreen")
+	
+func crearListadeMicrofonos():
+	var device_index = 0
+	for mic in AudioServer.get_input_device_list() as PackedStringArray:
+		option_mics.add_item(mic, device_index)
+		device_index = device_index +1
 
 func _on_idioma_item_selected(index):
 	if index == 0:
@@ -201,3 +216,16 @@ func _on_idioma_item_selected(index):
 	elif index == 1:
 		TranslationServer.set_locale("es")
 		Globals.opcionesParametros["Idioma"] = 1
+
+
+
+func _on_mic_option_item_selected(index):
+	AudioServer.input_device = option_mics.get_item_text(index)
+
+
+
+
+func _on_h_slider_value_changed(value):
+	Globals.opcionesParametros["MicSen"] = value
+	
+

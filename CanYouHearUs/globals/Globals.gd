@@ -26,11 +26,13 @@ var ModoInventario = false
 
 #opciones de volumen
 var opcionesParametros = {
+	"MicSen":10,
+	"ValorMic":0,
 	"Idioma":0,
-	"VolumenGral":0,
-	"VolumenVoice":0,
-	"VolumenMusic":0,
-	"VolumenSFX":0,
+	"VolumenGral":-3,
+	"VolumenVoice":-3,
+	"VolumenMusic":-3,
+	"VolumenSFX":-3,
 	"Mouse_sen":2,
 	"Brightness":1,
 }
@@ -47,6 +49,7 @@ var JugueUnPuzzleYQuieroSalir = false
 
 #portales
 var JugadorPosNuevaPortal = Vector3(0,0,0)
+var JugadorRotNuevaPortal = Vector3(0,0,0)
 var VengoDeUnPortal = false
 
 var npc_historias = {
@@ -72,7 +75,7 @@ var puzzles = {
 	"Puzzle10": false
 }
 var infoJugador = {
-	
+	"Linterna": false,
 	"posicion": Vector3(0,0,0),
 	"rotacion": Vector3(0,0,0),
 	"escenaACargar": "res://lvls/level_1.tscn",

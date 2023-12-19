@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://ctnfodosbhnnl"]
 
 [ext_resource type="Script" path="res://nodos/puerta.gd" id="1_ari2d"]
-[ext_resource type="ArrayMesh" uid="uid://bv3iq0r257d0i" path="res://assets/Models/Object/wall_doorway_scaffold_door.tres" id="1_x47ec"]
-[ext_resource type="Material" uid="uid://rwde5yhqc2ws" path="res://assets/Models/textures/Master_material.tres" id="2_x7obp"]
+[ext_resource type="Material" uid="uid://dhx566ge5iu3l" path="res://assets/Models/textures/M_InteriorChairDoor.tres" id="2_fyde3"]
 [ext_resource type="FontFile" uid="uid://bxhbbvy48ryly" path="res://Fuente/VCR_OSD_MONO_1.001.ttf" id="3_6a7h0"]
+[ext_resource type="ArrayMesh" uid="uid://baaidl75kthhq" path="res://assets/Models/Object/Door_interact.tres" id="3_jidmi"]
 [ext_resource type="AudioStream" uid="uid://bc2qlb430kvxn" path="res://audio/Door_Open.ogg" id="5_cv5w1"]
 [ext_resource type="AudioStream" uid="uid://i0auv7sec2y3" path="res://audio/Door_Closed.ogg" id="6_vahrl"]
 
@@ -81,7 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02644, -0.430852, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="pivote"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02644, 0.430852, 0)
-collision_layer = 16
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pivote/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10045, 0)
@@ -89,8 +89,8 @@ shape = SubResource("BoxShape3D_efd0x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="pivote/StaticBody3D/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.846411, -1.52585, 0)
-material_override = ExtResource("2_x7obp")
-mesh = ExtResource("1_x47ec")
+material_override = ExtResource("2_fyde3")
+mesh = ExtResource("3_jidmi")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16

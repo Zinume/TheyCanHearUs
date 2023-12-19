@@ -1,8 +1,12 @@
 extends Node3D
 
 @export var Jugador = CharacterBody3D
+@export var AvisoItem = Control
+@export var AvisoTexto: String = "Diario o Pista"
 @export var queItemSoy = "diario1 o pista1"
 @export var soyDiario = false
+
+signal tomeItem
 
 var EstoyTomado = false
 var NoPickieNada = false
@@ -15,9 +19,11 @@ var EstoyLeyendo = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PosOrigen = global_transform
+	#si no soy diario, soy pista. Y seteo el texto del contenido Pistas, lo mismo pero con el diario.
 	if !soyDiario:
 		$Control/ColorRect/Label.set_text(Inventario.contenidoPistas["pista"][queItemSoy])
 	elif soyDiario:
+		siEstoyEnElInventarioMeBorro()
 		$Control/ColorRect/Label.set_text(Inventario.contenidoDiario["diario"][queItemSoy])
 
 
@@ -98,3 +104,12 @@ func _on_button_pressed():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		Globals.infoJugador["inventario"][queItemSoy] = true
 		$Click2.play()
+		tomeItem.emit()
+		AvisoItem.Texto.text = AvisoTexto
+		tween.stop()
+		queue_free()
+		
+
+func siEstoyEnElInventarioMeBorro():
+	if Globals.infoJugador["inventario"][queItemSoy] == true:
+		queue_free()

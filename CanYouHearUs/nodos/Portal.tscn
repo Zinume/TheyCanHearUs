@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6rsfgk3akhbp"]
+
+[ext_resource type="Script" path="res://nodos/Portal.gd" id="1_yrw4f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_myk5t"]
+size = Vector3(26.0607, 2.2763, 1)
+
+[node name="Portal" type="Area3D"]
+transform = Transform3D(0.979218, -0.112197, 0.168947, 0.110564, 0.993686, 0.0190758, -0.17002, 0, 0.985441, 0, 0, 31.9668)
+script = ExtResource("1_yrw4f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.998926, 0.0463176, -0.000185341, -0.0463175, 0.998895, -0.00799124, -0.000185221, 0.00799127, 0.999968, 5.54042, 0.475047, -18.9869)
+shape = SubResource("BoxShape3D_myk5t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
