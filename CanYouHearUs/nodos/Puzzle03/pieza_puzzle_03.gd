@@ -14,12 +14,12 @@ func _ready():
 
 
 
-func _process(delta):
+func _process(_delta):
 	PiezaSeleccionadaMoverse()
 	Colisiones()
 	RayoChocaConmigo()
 	
-func _input(event):
+func _input(_event):
 	
 	if Input.is_action_pressed("Clickear") and Jugador.puedointeractuar and Jugador.ConqueEstoyInteractuando == self and !MeMueven and !Globals.ModoOpciones and !Globals.DeseoVolverAlLevel:
 		MiPapa.ObjetoEnMiMano = NumeroPieza

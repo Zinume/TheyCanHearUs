@@ -8,6 +8,7 @@ var MeActive = false
 var Activados = 0
 
 func _ready():
+	hide()
 	# Almacena la cantidad de elementos activados al inicio
 	Activados = count_activados()
 

@@ -1,5 +1,7 @@
 extends Node3D
 
+signal victoriaPuzzle3
+
 var LugarMouse = "null"
 var ObjetoEnMiMano = "null"
 @export var NumeroLugar01 : StaticBody3D = null
@@ -47,7 +49,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#print(LugarMouse)
 	#print(piezas_colocadas)
 	#verificarVictoria()
@@ -88,6 +90,8 @@ func verificarVictoria():
 	
 	if aciertos == len(nueva_combinacion):
 		print("¡Has ganado!")
+		victoriaPuzzle3.emit()
+		$Ganaste.play()
 	else:
 		print("Aún no es la combinación correcta.")
 

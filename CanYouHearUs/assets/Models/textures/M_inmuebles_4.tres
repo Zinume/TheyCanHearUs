@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://b74b0imr6tkxq"]
+
+[ext_resource type="Texture2D" uid="uid://cphl1wssuvk7e" path="res://assets/Models/textures/Inmuebles_4_BaseColor.png" id="1_58f7k"]
+[ext_resource type="Texture2D" uid="uid://cdktrotdi7vvf" path="res://assets/Models/textures/Inmuebles_4_OcclusionRoughnessMetallic.png" id="2_iuyi4"]
+[ext_resource type="Texture2D" uid="uid://5geblynngsjy" path="res://assets/Models/textures/Inmuebles_4_Normal.png" id="3_14wk2"]
+
+[resource]
+albedo_texture = ExtResource("1_58f7k")
+metallic = 1.0
+metallic_specular = 0.25
+metallic_texture = ExtResource("2_iuyi4")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_iuyi4")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_14wk2")
+ao_enabled = true
+ao_texture = ExtResource("2_iuyi4")

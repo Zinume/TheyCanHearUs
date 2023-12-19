@@ -34,5 +34,18 @@ var historiaIrEnPregunta={
 		},
 		"pregunta4":{
 		}
+	},
+	"npc03":{
+		"pregunta1":{
+			1:2
+		},
+		"pregunta2":{
+			1:4
+		},
+		"pregunta3":{
+			1:6
+		},
+		"pregunta4":{
+		}
 	}
 }

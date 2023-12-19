@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dahh0dxajuiqr"]
+
+[ext_resource type="FontFile" uid="uid://bxhbbvy48ryly" path="res://Fuente/VCR_OSD_MONO_1.001.ttf" id="1_8cqbg"]
+[ext_resource type="Script" path="res://lvls/aviso.gd" id="1_b2a7v"]
+[ext_resource type="PackedScene" uid="uid://mwx7pjrq25um" path="res://UI/UI_Opciones.tscn" id="3_sgakc"]
+
+[node name="Aviso" type="Node2D"]
+script = ExtResource("1_b2a7v")
+
+[node name="UI_Opciones" parent="." instance=ExtResource("3_sgakc")]
+
+[node name="Brightness" parent="UI_Opciones/VBoxContainer2" index="0"]
+visible = false
+
+[node name="MouseSensitivity" parent="UI_Opciones/VBoxContainer2" index="1"]
+visible = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -528.0
+offset_top = -102.5
+offset_right = 528.0
+offset_bottom = 102.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_8cqbg")
+theme_override_font_sizes/font_size = 30
+text = "AVISO_LINE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="UI_Opciones"]

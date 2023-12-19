@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dtelq57g3533h"]
+
+[ext_resource type="Texture2D" uid="uid://1qo8p0fulmhd" path="res://assets/Models/textures/DormitorioBano_BaseColor.png" id="1_c7ub2"]
+[ext_resource type="Texture2D" uid="uid://cvkx4g0k6nifq" path="res://assets/Models/textures/DormitorioBano_OcclusionRoughnessMetallic.png" id="2_v1swl"]
+[ext_resource type="Texture2D" uid="uid://ceh8h6ij16ulg" path="res://assets/Models/textures/DormitorioBano_Normal.png" id="3_op078"]
+
+[resource]
+resource_name = "DormitorioBano"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+albedo_texture = ExtResource("1_c7ub2")
+metallic = 1.0
+metallic_specular = 0.22
+metallic_texture = ExtResource("2_v1swl")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_v1swl")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_op078")
+ao_enabled = true
+ao_texture = ExtResource("2_v1swl")

@@ -34,90 +34,34 @@ Item 3,Item 3,Articulo 3
 Item 4,Item 4,Articulo 4
 Item 5,Item 5,Articulo 5
 ,,
-QUESTION_1,First Question,Primera Pregunta
-QUESTION_2,Second Question,Segunda Pregunta
-QUESTION_3,Third Question,Tercera Pregunta
+QUESTION_1,Did something happen?,¿Ocurrió algo?
+QUESTION_2,Tell me about the place.,Hablame del lugar
+QUESTION_3,Say goodbye.,Despedirme
 QUESTION_4,Fourty Question,Cuarta Pregunta
 ,,
 Llave legendaria,Legendary Key,Llave legendaria
 Llave podrida,Rousty Key,Llave podrida
 ,,
 ,,
-ITEM_1,"11 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
-		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, fin","11 español Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
-		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, fin"
-ITEM_2,"22 Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate.    Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in.    Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin","22 ESPAÑOL Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate. 
-		Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in. 
-		Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin"
-ITEM_3,"33 Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
-		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
-		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
-		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. Fin","33 ESPAÑOL Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
-		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
-		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
-		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. fin"
-ITEM_4,"44 Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
-		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
-		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus, fin","44 ESPAÑOL Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
-		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
-		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus, fin"
-ITEM_5,"55 Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
-		Phasellus rutrum iaculis rhoncus. Nulla pellentesque odio vel elit dapibus tincidunt. Aenean non fermentum libero, vitae ultricies nisi. 
-		Donec vitae lorem consequat, interdum arcu vel, porta leo. Aenean ex turpis, accumsan sit amet nisl non, vestibulum dapibus nunc. Praesent varius sed nulla eget pellentesque, fin","55 ESPAÑOL Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
-		Phasellus rutrum iaculis rhoncus. Nulla pellentesque odio vel elit dapibus tincidunt. Aenean non fermentum libero, vitae ultricies nisi. 
-		Donec vitae lorem consequat, interdum arcu vel, porta leo. Aenean ex turpis, accumsan sit amet nisl non, vestibulum dapibus nunc. Praesent varius sed nulla eget pellentesque, fin"
+ITEM_1,English text item 1,Texto en español item 1
+ITEM_2,English text item 2,Texto en español item 2
+ITEM_3,English text item 3,Texto en español item 3
+ITEM_4,English text item 4,Texto en español item 4
+ITEM_5,English text item 5,Texto en español item 5
 ,,
-DIARY_1,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
-		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, es el firrr","ESPAÑOL Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
-		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, es el firrr"
-DIARY_2,"Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate. 
-		Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in. 
-		Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin","ESPAÑOL Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate. 
-		Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in. 
-		Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin"
-DIARY_3,"Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
-		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
-		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
-		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. fin ","ESPAÑOL Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
-		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
-		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
-		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. fin "
-DIARY_4,"Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
-		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
-		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus. fin ","ESPAÑOL Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
-		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
-		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus. fin "
-DIARY_5,"Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
-		Phasellus rutrum iaculis rhoncus. Nulla pellentesque odio vel elit dapibus tincidunt. Aenean non fermentum libero, vitae ultricies nisi. 
-		Donec vitae lorem consequat, interdum arcu vel, porta leo. Aenean ex turpis, accumsan sit amet nisl non, vestibulum dapibus nunc. Praesent varius sed nulla eget pellentesque. Fin","ESPAÑOL Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
-		Phasellus rutrum iaculis rhoncus. Nulla pellentesque odio vel elit dapibus tincidunt. Aenean non fermentum libero, vitae ultricies nisi. 
-		Donec vitae lorem consequat, interdum arcu vel, porta leo. Aenean ex turpis, accumsan sit amet nisl non, vestibulum dapibus nunc. Praesent varius sed nulla eget pellentesque. Fin"
+DIARY_1,English text diary 1,Texto en español diario 1
+DIARY_2,English text diary 2,Texto en español diario 2
+DIARY_3,English text diary 3,Texto en español diario 3
+DIARY_4,English text diary 4,Texto en español diario 4
+DIARY_5,"The address is: Hill 4, House 2, near Loulquen Road.","La dirección es: colina 4, casa 2, cerca del camino Loulquen"
 PISTA_1,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
 		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, es el firrr","ESPA Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 		Praesent tortor lectus, lacinia eget vulputate maximus, suscipit quis risus. Nunc massa ex, vehicula sit amet convallis a, efficitur sit amet leo. 
 		Fusce at ex massa. In eleifend risus est, non lacinia ante eleifend vel. Nulla commodo nisi nisl, at consectetur neque interdum sit amet. Duis placerat efficitur nibh quis euismod. Pellentesque non vehicula est. Phasellus porta tempor nulla, ac aliquam risus sollicitudin consequat. Morbi sed viverra arcu, sed imperdiet purus, es el firrr"
-PISTA_2,"Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate. 
-		Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in. 
-		Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin","ESPA Nullam in libero ut mi egestas hendrerit at non est. Etiam euismod metus nec nibh accumsan vulputate. 
-		Nullam volutpat augue sed efficitur placerat. Aliquam gravida ornare faucibus. Nunc tincidunt eu nisl vestibulum gravida. Nullam est lacus, placerat vitae lorem sit amet, rhoncus mattis arcu. Suspendisse congue tincidunt arcu, dictum eleifend massa maximus in. 
-		Curabitur quis cursus enim, a placerat felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sodales ornare eros semper lobortis, fin"
-PISTA_3,"Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
-		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
-		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
-		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. fin ","ESPA Nam vestibulum felis in mi posuere, ac vestibulum libero viverra. Curabitur non sem nunc. 
-		Fusce blandit et ligula ut sagittis. Sed fringilla et urna at tempor. 
-		Proin tincidunt mauris ante, in dapibus metus commodo eget. Duis eget magna tincidunt, convallis ex eget, iaculis diam. Vivamus venenatis neque nec sodales aliquam. Duis scelerisque ante sed eros accumsan blandit. Aenean dui leo, imperdiet sed rhoncus tincidunt, lobortis non est. 
-		Cras rhoncus enim eros, quis pulvinar odio pulvinar sed. fin "
-PISTA_4,"Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
-		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
-		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus. fin ","ESPA Nulla egestas ac urna sit amet finibus. Morbi vitae diam ut quam vestibulum sodales. Ut mattis, quam ac tristique vehicula, massa nisl imperdiet elit, non feugiat leo enim maximus dolor. 
-		Nullam congue nulla sit amet dui aliquet consectetur. Sed hendrerit rutrum diam. Aliquam vulputate molestie mi, id commodo sem efficitur at. Curabitur et facilisis mauris. Mauris diam nulla, sagittis bibendum nibh et, ultrices fermentum ante. 
-		Quisque bibendum eu augue in lacinia. Nunc quis felis sagittis, auctor nisl sit amet, fringilla lectus. fin "
+PISTA_2,"The order is: Piece 1: slot 4, Piece 2: slot 2, Piece 3: slot 5, Piece 4: slot 3, Piece 5: slot 1.","El orden es: Pieza 1 : slot 4, pieza 2: slot 2, pieza 3 : slot 5, pieza 4: slot 3, pieza 5: slot 1."
+PISTA_3,Remember that the password to move the pillars is not the number of turns but the number of times you touch them.,Recuerda que la contraseña para mover los pilares no son la cantidad de giros sino la cantidad de veces que los tocas. 
+PISTA_4,"The combination is: buttons 2, 4, and 5 pressed.","La combinación es : botón 2, 4 y 5 presionados"
 PISTA_5,"Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
 		Phasellus rutrum iaculis rhoncus. Nulla pellentesque odio vel elit dapibus tincidunt. Aenean non fermentum libero, vitae ultricies nisi. 
 		Donec vitae lorem consequat, interdum arcu vel, porta leo. Aenean ex turpis, accumsan sit amet nisl non, vestibulum dapibus nunc. Praesent varius sed nulla eget pellentesque. Fin","ESPA Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maximus non justo. Phasellus porttitor rutrum eleifend. Etiam eget condimentum nibh. Pellentesque pellentesque mi lacinia, commodo ante nec, dignissim ipsum. 
@@ -126,3 +70,68 @@ PISTA_5,"Aenean nec massa massa. Sed urna quam, fermentum id ultricies at, maxim
 ,,
 NPC_1_LINE_1,David: My name is David and this is a test dialog,David:  Hola este es un dialogo de prueba y me llamo 
 NPC_1_LINE_2,This is the next line,Y esto es lo que sigue
+,,
+QUESTION_INTRO_1,"Everything will be fine, trust me. We'll be there soon. ","Todo estará bien, confiá en mi. Pronto llegaremos."
+,,
+,,
+INTRO_LINE_1,"We've been walking for a while, I think we should be close by now.","Llevamos un tiempo caminando, creo que ya deberíamos estar cerca."
+INTRO_LINE_2,"My feet hurt a bit, and Anna must be exhausted; she hasn't said a word since we arrived. ","Me duele un poco los pies, y Anna ya debe estar agotada, no a dicho una palabra desde que llegamos."
+INTRO_LINE_3,Anna: This place gives me a bad feeling; it seems like we're far from everyone.,"Anna: Este lugar me da mala espina, parece que estamos lejos de todo el mundo."
+INTRO_LINE_4,Anna: Do you think something could happen to us in a place like this?,Anna: ¿Crees que nos pase algo en un lugar como este?
+INTRO_LINE_5,"Anna: Let's keep going, then. I trust you, friend.","Anna: Sigamos adelante, entonces. Confío en ti, amiga"
+INTRO_LINE_6,You can turn on the flashlight by pressing [F].,Puedes encender la linterna presionando [F].
+,,
+NPC_2_LINE_1,Anna: ...,Anna: …
+NPC_2_LINE_2,... Thank you for everything you do for me; being together is the best thing these days.,"Anna: … Gracias por todo lo que haces por mi, estar juntas es lo mejor en estos días."
+NPC_2_LINE_3,"Anna: At home, no one talks to me, and ... I can't stop missing him…",Anna: En casa nadie me habla y … no dejo de extrañarlo…
+NPC_2_LINE_4,Anna: Yes... we should keep going.,"Anna: Si… deberíamos seguir, ya debemos estar cerca."
+NPC_2_LINE_5,Anna: Maybe... we should hurry.,Anna: Tal vez… deberíamos apresurarnos
+NPC_2_LINE_6,Anna: I wouldn't want to be in the dark in this place.,Anna: No me gustaría quedar a oscuras en este lugar
+,,
+,,
+NPC_3_LINE_1,Stranger: Two girls walking alone around here is very dangerous.,Desconocido: Dos chicas caminando solas por estos lados es muy peligroso.
+NPC_3_LINE_2,"Stranger: Nightfall is approaching, and after what happened this week…","Desconocido: Pronto se hará de noche, y después de lo que paso este semana…"
+NPC_3_LINE_3,Stranger: You didn't hear? A serial killer escaped from the local prison.,Desconocido: No se enteraron… Se escapo un asesino serial de la cárcel local.
+NPC_3_LINE_4,Stranger: They had him captured and were waiting to transfer him... and everything went wrong.,Desconocido: Lo tenían capturado y esperando transferirlo… Y todo termino mal.
+NPC_3_LINE_5,"Stranger: In this forest, strange things always happen. If you're brave, maybe you can uncover mysteries... or encounter a loose killer, hahaha. ","Desconocido: En este bosque cosas extrañas siempre ocurren, si son valientes tal vez puedan encontrar misterios… O un asesino suelto jajajaj."
+NPC_3_LINE_6,Stranger: Sorry for my humor... HAHA. Maybe I should go.,Desconocido: Perdón por mi humor… JAJA. Tal vez deba irme.
+NPC_3_LINE_7,Stranger: See you soon…,Desconocido: Hasta pronto… 
+,,
+,,
+REPLY_LINE_1,My friend went crazy and is trying to kill me.,Mi amiga se volvió loca he intenta asesinarme
+REPLY_LINE_2," I need help, please, send help.","Necesito ayuda, por favor, manden ayuda."
+REPLY_LINE_3,"Yes... I am, but I don't know what to do. She is wandering around the area, and I think she plans to kill me…","Si... lo estoy, pero no sé que hacer. Ella esta deambulando por la zona y creo que planea matarme…"
+REPLY_LINE_4,"Yes, please send help, I need it as soon as possible!!","Si, por favor manden ayuda, la necesito lo más pronto posible!!"
+REPLY_LINE_5,No... I don't know where I am! How... How do you expect me to know?,No... no sé donde estoy! Como... Como quieres que sepa?…
+REPLY_LINE_6,I don't know... maybe there is information inside the house.,No lo se... tal vez dentro de la casa haya información.
+,,
+HELP_LINE_1,I should call 911 for help; my friend has gone insane.,"debería llamar al 911 por ayuda, mi amiga esta vuelta loca."
+HELP_LINE_2,"911, this is Martha, how can we assist you?","911, habla Martha en que podemos ayudarla?"
+HELP_LINE_3,Please calm down; I need you to breathe and tell me if you are in a safe place.,"Por favor cálmese, necesito que respire y me diga si se encuentra en un lugar a salvo."
+HELP_LINE_4,"Please, I need you to calm down and tell me if you're in a safe place.","Por favor, necesito que se calme y dígame si esta en un lugar a salvo."
+HELP_LINE_5,"Now I need you to tell me your address, and we'll send help.",Ahora necesito que me digas tu dirección y enviaremos la ayuda.
+HELP_LINE_6,I need any kind of information about where you are…,Necesito que me des cualquier tipo de información de donde estas…
+HELP_LINE_7,"I must leave here, go back to the entrance, and call for help again…","Debo salir de acá, volver a la entrada y llamar nuevamente por ayuda…"
+,,
+HELP_ANSWERD_1,Anna?! Where are you?! ANNA!!!,¡¿Anna?! ¡¡¿Dónde estás?!! ANNA!!!
+HELP_ANSWERD_2,"Can you hear me??!! Please, answer me, Anna!!",¡¡¿¿Puedes escucharme??!! ¡¡Por favor respondeme Anna!!
+,,
+LINE_MISSING_GIRL_1,"We've finally arrived, Anna... Anna?",Al fin hemos llegado Anna… ¿Anna?
+LINE_MISSING_GIRL_2,"You need to press [1] or [3] on your keyboard while speaking into your microphone. The yellow area is the acceptance zone, and the red area means you're shouting.","Debes presionar [1] o [3] de tu teclado mientras hablas en tu micrófono La zona de aceptación es la amarilla, la zona roja es que estás gritando."
+LINE_MISSING_GIRL_3, I should... I should continue forward.,Debería… debería seguir adelante
+,,
+WHERE_SHE_GO_1,"I must turn off the flashlight quickly... Through the window, where did Anna go? She went to the left; what could be there?","Debo apagar la linterna rápido.. Por la ventana, hacia donde va Anna? Se fue por la izquierda, que habrá allá?"
+,,
+KEY_ITEM_1,Key to the second floor room,Llave cuarto segundo piso
+KEY_ITEM_2,Key to the cellar,Llave bodega
+,,
+TEXT_ITEM_1,Old diary,Diario viejo
+TEXT_ITEM_2,Note from the homeowner,Nota del dueño de casa
+TEXT_ITEM_3,Note from Anna,Nota de Anna
+TEXT_ITEM_4,Resurrection spell,Conjuro de resurrección
+TEXT_ITEM_5,Map of the place,Mapa del lugar
+,,
+ENDING_LINE,Thank you for playing,Gracias por jugar!
+AVISO_LINE,This game does not feature autosave. It is also necessary to use a microphone to progress in the story.,Este juego no cuenta con guardado automático. También es necesario usar micrófono para poder avanzar en la historia.
+,,
+CLOSED_LINE,Closed with ,Cerrado con 

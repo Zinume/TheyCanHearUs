@@ -8,7 +8,7 @@ var CualNPCSoy = 'npc01'
 var TextoPersonaje00 = 0
 var EstoyEscribiendo = false
 @onready var Lvl = get_parent()
-#@export var NPC_sprites : CanvasLayer
+
 
 
 var TextoEdit = ''
@@ -41,7 +41,7 @@ var VolverMenu:Array = [
 
 func _ready():
 	pass
-	#CheckSprite()
+	
 	
 # warning-ignore:unused_argument
 func _process(_delta):
@@ -51,7 +51,6 @@ func _process(_delta):
 	#	ActualizarDialogosConTextoModificado()
 	#	CheckRutaHistoria()
 	#	ChatBox_activado()
-	#	CambiarSpriteNPC('Player')
 	#	Setear_text(DialogosNPC00[TextoPersonaje00])
 	#	AnimacionTexto()
 	#	if TextoPersonaje00 in NpcArrays.AgregarTexto[CualNPCSoy] and !EstoyEscribiendo:
@@ -63,6 +62,11 @@ func _process(_delta):
 		#Acá estan los textos en donde se recompensa para avanza en la historia
 		if TextoPersonaje00 in NpcArrays.TextoRecompensa[CualNPCSoy]:
 			Globals.npc_historias[CualNPCSoy] += 1
+		#acá es para añadir historia a otros NPC
+		if TextoPersonaje00 in DialogosNpc.rutasParaOtrosNpc[CualNPCSoy]:
+			agregarHistoriaAOtrosNpc(DialogosNpc.rutasParaOtrosNpc[CualNPCSoy][TextoPersonaje00])
+		else:
+			pass
 			
 		### Añadir hora al dia
 		#if TextoPersonaje00 in NpcArrays.HoraDelDia[CualNPCSoy]:
@@ -70,6 +74,7 @@ func _process(_delta):
 			
 	#Finales de conversacion en las diferentes lineas de dialogo
 		if TextoPersonaje00 in NpcArrays.FinalesDialogos[CualNPCSoy]:
+			print('termine')
 			fin_de_dialogo.emit()
 			TextoPersonaje00 = 0
 			ChatBox_desactivado()
@@ -227,7 +232,7 @@ func ChatBox_activado():
 	$CanvasLayer.show()
 	#get_tree().paused = true
 	Globals.ModoChat = true
-	#CheckSprite()
+
 
 
 func ChatBox_desactivado():
@@ -235,7 +240,7 @@ func ChatBox_desactivado():
 	$CanvasLayer.hide()
 	#get_tree().paused = false
 	Globals.ModoChat = false
-	#CheckSprite()
+
 	
 
 
@@ -317,18 +322,8 @@ func CheckRutaHistoria(Npc: String):
 		TextoPersonaje00 = DialogosNpc.rutasNpc[Npc]["texto al que ir"+str(Globals.npc_historias[Npc])]
 		
 
-#func CheckSprite():
-#	if Globals.ModoChat:
-#		NPC_sprites.get_node("AnimatedSprite1").show() 
-#	else:
-#		NPC_sprites.get_node("AnimatedSprite1").hide()
-#		NPC_sprites.DetenerAnimacion()
-
-
-#func CambiarSpriteNPC(NombreNPC):
-#	NPC_sprites.get_node("AnimatedSprite1").animation = NombreNPC
-	
-	
+func agregarHistoriaAOtrosNpc(NpcAjeno:String):
+	Globals.npc_historias[NpcAjeno]+= 1
 
 func TimerParaCambiarEstadoPreguntas():
 	SignalPregunta01 = false

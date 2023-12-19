@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://nlyq0blla1cs"]
+[gd_scene load_steps=5 format=3 uid="uid://nlyq0blla1cs"]
 
 [ext_resource type="PackedScene" uid="uid://b7dwtyw0wwbkc" path="res://nodos/Puzzle04/area_puzzle_04.tscn" id="1_1cqa0"]
 [ext_resource type="Script" path="res://nodos/Puzzle04/base_puzzle_04.gd" id="1_n8ns5"]
+[ext_resource type="AudioStream" uid="uid://b4pdxak5mgy61" path="res://audio/Won.wav" id="3_plblb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_682dp"]
 
@@ -26,3 +27,8 @@ MiPapa = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.808294, 0.77691, 0)
 pieza = "pieza3"
 MiPapa = NodePath("..")
+
+[node name="Ganaste" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_plblb")
+volume_db = 10.0
+bus = &"FX"

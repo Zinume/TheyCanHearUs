@@ -26,17 +26,19 @@ var ModoInventario = false
 
 #opciones de volumen
 var opcionesParametros = {
+	"MicSen":10,
+	"ValorMic":0,
 	"Idioma":0,
-	"VolumenGral":0,
-	"VolumenVoice":0,
-	"VolumenMusic":0,
-	"VolumenSFX":0,
+	"VolumenGral":-3,
+	"VolumenVoice":-3,
+	"VolumenMusic":-3,
+	"VolumenSFX":-3,
 	"Mouse_sen":2,
 	"Brightness":1,
 }
 #opciones de pantalla
 # Guardar el tamaño de ventana actual
-var window_size = Vector2()
+var window_size = Vector2(1280,720)
 # Guardar el estado de pantalla completa
 var is_fullscreen = false
 var FullScreen = false
@@ -47,6 +49,7 @@ var JugueUnPuzzleYQuieroSalir = false
 
 #portales
 var JugadorPosNuevaPortal = Vector3(0,0,0)
+var JugadorRotNuevaPortal = Vector3(0,0,0)
 var VengoDeUnPortal = false
 
 var npc_historias = {
@@ -72,7 +75,7 @@ var puzzles = {
 	"Puzzle10": false
 }
 var infoJugador = {
-	
+	"Linterna": false,
 	"posicion": Vector3(0,0,0),
 	"rotacion": Vector3(0,0,0),
 	"escenaACargar": "res://lvls/level_1.tscn",
@@ -134,6 +137,8 @@ func guardar():
 	datos["valor2"] = puzzles
 	datos["valor3"] = infoJugador
 	datos["valor4"] = opcionesParametros
+	datos["valor5"] = npc_historias
+	datos["valor66"] = is_fullscreen
 	datos["valor67"] = window_size
 	var archivo = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
 	if archivo != null and archivo.is_open():
@@ -155,6 +160,8 @@ func cargar():
 				puzzles = datos["valor2"]
 				infoJugador = datos["valor3"]
 				opcionesParametros = datos["valor4"]
+				npc_historias = datos["valor5"]
+				is_fullscreen = datos["valor66"]
 				window_size = datos["valor67"]
 				
 				
